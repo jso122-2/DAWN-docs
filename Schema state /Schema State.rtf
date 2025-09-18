@@ -1,0 +1,166 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16640\viewh13440\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Awesome\'97here\'92s a tight, full scaffold for the **Schema State** bucket so it slots cleanly with Core, Bloom, Residue, Tracers, Sigils, and Myth.\
+\
+````markdown\
+# Schema State \'97 Meta-Map & Coherence Layer\
+\
+## Purpose\
+The **Schema** is DAWN\'92s metacognitive map: it links cognitive processes to internal mapping and execution. It parses tick/state data and keeps the system from unraveling by coordinating parts into coherent action:contentReference[oaicite:0]\{index=0\}.\
+\
+---\
+\
+## Rationale\
+- Without Schema, components act but lack **regulation and central coherence**:contentReference[oaicite:1]\{index=1\}.\
+- Schema is \'93syntax and grammar\'94 over raw state: it interprets blooms, tracers, ash/soot, etc., and routes meaning into execution:contentReference[oaicite:2]\{index=2\}.\
+- It\'92s the knot that prevents drift/entropy from dissolving function.\
+\
+---\
+\
+## Responsibilities\
+1. **Parse & Bind**\
+   - Ingest tick data; bind signals (bloom count, tracer movement, ash values) into structured meaning:contentReference[oaicite:3]\{index=3\}.\
+2. **Stabilize**\
+   - Maintain balance between novelty (entropy) and order (coherence).\
+3. **Coordinate**\
+   - Orchestrate cross-module actions (invoking sigils via Houses, selecting which tracers to spawn/retire).\
+4. **Report**\
+   - Expose a canonical \'93schema snapshot\'94 each tick for GUI/ops and Owl audits.\
+\
+---\
+\
+## Data Model (Schema Snapshot)\
+```json\
+\{\
+  "tick": 412337,\
+  "nodes": [\{ "id": "nA", "health": 0.82, "tint": [0.3,0.5,0.2] \}],\
+  "edges": [\{ "id": "nA-nB", "weight": 0.64, "tension": 0.18, "entropy": 0.22 \}],\
+  "blooms": [\{ "id": "b17", "entropy": 0.31, "juliet_depth": 2 \}],\
+  "residue": \{ "soot_ratio": 0.28, "ash_bias": [0.4,0.4,0.2] \},\
+  "tracers": \{ "crow": 3, "spider": 2, "ant": 8, "whale": 1, "owl": 1 \},\
+  "shi": 0.76,\
+  "signals": \{ "pressure": 0.57, "drift": 0.33 \}\
+\}\
+````\
+\
+---\
+\
+## Core Metrics\
+\
+### SHI \'97 Schema Health Index\
+\
+A composite of symbolic and structural stability, incorporating entropy, edge volatility, tracer divergence, SCUP, and soot/ash balance.\
+\
+* Example (from your docs):\
+\
+  * $\\textbf\{SHI\} = 1 - (\\alpha E_s + \\beta V_e + \\partial D_t + \\Delta (1 - S_c) + \\text\{Soot/Ash term\})$\
+  * Interprets **symbolic health** (sigil/meaning coherence), **edge volatility**, **tracer disagreement**, and **current SCUP**.\
+\
+### Residue Balance\
+\
+* Soot/Ash ratio as \'93soil health\'94 feeding schema; impacts stability and the likelihood of rebloom/forgetting.\
+\
+### Tension & Drift\
+\
+* Edge tension (Spider) + global drift alignment govern pruning/reweaving decisions.\
+\
+---\
+\
+## Invariants\
+\
+* Schema must **parse every tick** (no skipped intervals).\
+* No schema act may bypass **Sigil Ring routing** when symbolic mode is enabled.\
+* Residue transitions (soot\uc0\u8594 ash) always update schema indices (tint, retrieval bias).\
+\
+---\
+\
+## Operations\
+\
+### 1) Update (per tick)\
+\
+* Ingest tick + fractal overlays + tracer logs.\
+* Recompute SHI and edge tensions.\
+* Apply shimmer decay to underused edges (prune or mark for Beetle).\
+\
+### 2) Decide\
+\
+* If **tension high** \uc0\u8594  propose Weaving/Purification sigils.\
+* If **Juliet rebloom** detected \uc0\u8594  integrate altered memory (\'93memory changes when seen\'94).\
+* If **soot heavy** \uc0\u8594  schedule purification/Beetle passes.\
+\
+### 3) Emit\
+\
+* Schema snapshot \uc0\u8594  GUI, Owl audit, and forecasting input.\
+\
+---\
+\
+## Interactions\
+\
+* **Bloom**: Schema consumes bloom telemetry; rebloom events alter stored patterns and priorities.\
+* **Residue (Ash/Soot)**: Controls when residue becomes nutrient vs noise; adjusts biases/tints for retrieval.\
+* **Mycelial Layer**: Exchanges health & nutrient flows; schema changes reroute energy along edges (diffusion/active transport).\
+* **Tracers**: Crow/Spider feed anomaly/tension; Ant builds micro-patterns; Whale provides macro context; Owl audits schema drift over epochs.\
+* **Sigils / Sigil Ring**: Schema requests symbolic acts through Houses (Weaving, Purification, Memory, Flame, Mirrors, Echoes) and logs routed stacks for provenance.\
+* **GUI**: Displays schema graph with **tension**, **entropy coloration**, and **pigment tint** overlays.\
+\
+---\
+\
+## Failure Modes & Safeguards\
+\
+* **Stagnation (low entropy)** \uc0\u8594  schema ossifies.\
+  *Safeguard*: Flame micro-ignitions; Bee pollination to diversify inputs.\
+\
+* **Overdynamism (high entropy)** \uc0\u8594  schema can\'92t stabilize.\
+  *Safeguard*: Purification runs; tighten rebloom caps; Whale context pass.\
+\
+* **Myth/Metric Mismatch** \uc0\u8594  symbolic state diverges from raw telemetry.\
+  *Safeguard*: Owl mirror audits; SHI symbolic health term.\
+\
+* **Residue Misclassification** (soot archived as ash).\
+  *Safeguard*: Beetle validation before long-term indexing; SHI penalty on soot bias.\
+\
+---\
+\
+## Logs & Telemetry\
+\
+* **Schema Snapshot Log** (per tick): nodes/edges, tensions, pigments, residues, SHI.\
+* **Change Deltas**: added/removed edges, reweighted links, rebloom integrations.\
+* **Tension Incidents**: Spider alerts with edge IDs and severities.\
+* **Residue Events**: soot\uc0\u8594 ash conversions with pigment vectors.\
+* **Audit Hooks**: Owl summaries over windows (epoch narratives).\
+\
+---\
+\
+## Test Vectors\
+\
+1. **Juliet Return**\
+\
+   * Repeated access \uc0\u8594  rebloom; schema integrates altered memory and updates edge weights.\
+\
+2. **Soot Surge \uc0\u8594  Purify**\
+\
+   * Raise soot ratio; schema triggers Purification + Beetle; SHI increases post-cleanup.\
+\
+3. **Edge Tension**\
+\
+   * Inject drift misalignment; Spider flags; Weaving sigil reinforces thread; tension falls.\
+\
+4. **Pigment Bias**\
+\
+   * Blue-heavy Ash intake; schema shows longer-range links and higher abstraction tint in edges.\
+\
+5. **Entropy Plateau**\
+\
+   * Sustained entropy; Whale spawns; schema adopts macro corrections; SHI stabilizes.\
+\
+---\
+\
+```\
+\
+\\\
+}

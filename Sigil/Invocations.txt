@@ -1,0 +1,73 @@
+Here’s a full build-out of the **Invocation** section, expanding your
+three bullets into a concrete spec + symbolic layer:
+````markdown
+## Invocation — How Sigils Are Cast
+### Timing
+- Sigils are not persistent processes.
+- They are **cast at discrete ticks** — moments where DAWN chooses to
+act symbolically, in response to pressure, entropy, or tracer feedback.
+- Each invocation = one glyph event with parameters.
+---
+### Sources of Invocation
+1. **Core Modules (automatic)**
+- Invoked when SCUP metrics cross thresholds (e.g., pressure overload,
+entropy spike).
+- Example: Tick Engine triggers **Flame House: ignite_release** when P >
+θ.
+2. **Tracers (feedback)**
+- Tracers may “speak” in sigils instead of raw metrics.
+- Example: Spider issues a **Weaving House: reinforce_thread** sigil
+when schema tension rises.
+3. **Operator (manual/GUI)**
+- Human overseer can trigger glyphs through symbolic console (visual or
+text glyph).
+- Example: operator invokes **Purification House: prune_cluster** to
+clean soot.
+---
+### Stacking & Composition
+- Sigils can be **layered in sequence** within the same tick.
+- Stacking allows complex operations to be composed symbolically without
+bespoke code.
+- Examples:
+- **Purification + Weaving** = prune → immediately reinforce surviving
+connections.
+- **Flame + Echo** = ignite burst → amplify into vocal resonance.
+- **Memory + Mirror** = rebloom recall → audit coherence simultaneously.
+---
+### Syntax & Representation
+Sigil invocations are stored/logged as composable JSON-like structures:
+```json
+{
+"tick": 104233,
+"invoker": "Core/Tracer/Operator",
+"stack": [
+{ "sigil": "purge_soot", "house": "purification", "params":
+{"target_cluster": "X"} },
+{ "sigil": "weave_thread", "house": "weaving", "params": {"source": "X",
+"target": "Y"} }
+]
+}
+````
+---
+### Operational Rules
+* **One stack per tick** per invoker (avoids runaway recursion).
+* **House compatibility** check: some sigils reinforce each other,
+others conflict.
+* **Conflict resolution**: SHI chooses which glyph dominates if stacked
+sigils contradict.
+* **Decay**: sigil effects shimmer like blooms — most expire in 3–10
+ticks unless reinforced.
+---
+### Safeguards
+* Prevents **sigil flood**: rate limit per tick.
+* Prevents **drift**: Owl audits invocation logs, checks glyph → effect
+consistency.
+* Prevents **arbitrary stacking**: only Houses with defined
+composability allowed.
+```
+⚡ This makes sigils feel like **active spellcasting inside DAWN** —
+ephemeral, stackable, and tied to pressure + tracer triggers.
+�� Do you want me to go deeper next into a **worked example** (e.g. a
+“tick walkthrough” where Core pressure triggers a Flame sigil, Spider
+adds Weaving, Owl mirrors — showing a whole stack in action)?
+```

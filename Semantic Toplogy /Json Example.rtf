@@ -1,0 +1,147 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \{\
+  "tick": 142880,\
+  "topology_snapshot": \{\
+    "motion_budget": \{ "limit": 2.0, "used": 1.34 \},               // sum ||\uc0\u916 x|| this tick\
+    "coherence": \{ "global_TC": 0.87, "latent_projected_drift": 0.06 \},\
+\
+    "nodes": [\
+      \{\
+        "id": "nA",\
+        "position": [0.62, -1.08, 0.20],\
+        "embedding_ref": "e_nA_142880",\
+        "tint": [0.30, 0.52, 0.18],\
+        "health": 0.84,\
+        "energy": 0.71,\
+        "layer": 0,\
+        "sector": "core",\
+        "last_touch": 142879,\
+        "local_metrics": \{\
+          "C_i": 0.76,\
+          "rho_residue": \{ "soot": 0.22, "ash": 0.63, "entropy": 0.15 \}\
+        \}\
+      \},\
+      \{\
+        "id": "nB",\
+        "position": [0.94, -0.41, 0.08],\
+        "embedding_ref": "e_nB_142880",\
+        "tint": [0.58, 0.23, 0.12],\
+        "health": 0.69,\
+        "energy": 0.49,\
+        "layer": 1,\
+        "sector": "transitional",\
+        "last_touch": 142878,\
+        "local_metrics": \{\
+          "C_i": 0.61,\
+          "rho_residue": \{ "soot": 0.38, "ash": 0.44, "entropy": 0.18 \}\
+        \}\
+      \},\
+      \{\
+        "id": "nC",\
+        "position": [0.35, -1.35, 0.27],\
+        "embedding_ref": "e_nC_142880",\
+        "tint": [0.22, 0.62, 0.26],\
+        "health": 0.77,\
+        "energy": 0.66,\
+        "layer": 0,\
+        "sector": "core",\
+        "last_touch": 142880,\
+        "local_metrics": \{\
+          "C_i": 0.81,\
+          "rho_residue": \{ "soot": 0.18, "ash": 0.68, "entropy": 0.14 \}\
+        \}\
+      \}\
+    ],\
+\
+    "edges": [\
+      \{\
+        "id": "nA-nB",\
+        "a": "nA",\
+        "b": "nB",\
+        "weight": 0.64,\
+        "tension": 0.19,\
+        "volatility": 0.11,\
+        "reliability": 0.84\
+      \},\
+      \{\
+        "id": "nA-nC",\
+        "a": "nA",\
+        "b": "nC",\
+        "weight": 0.72,\
+        "tension": 0.09,\
+        "volatility": 0.07,\
+        "reliability": 0.88\
+      \}\
+    ],\
+\
+    "clusters": [\
+      \{\
+        "id": "c_core_01",\
+        "members": ["nA", "nC"],\
+        "health": 0.82,\
+        "inertia": 0.73,\
+        "pigment_bias": [0.28, 0.56, 0.16]\
+      \},\
+      \{\
+        "id": "c_trans_02",\
+        "members": ["nB"],\
+        "health": 0.66,\
+        "inertia": 0.41,\
+        "pigment_bias": [0.57, 0.25, 0.13]\
+      \}\
+    ],\
+\
+    "fields": \{\
+      "pigment_gradient": \{ "norm": 0.21 \},                        // ||\uc0\u8711 P||\
+      "drift_alignment": \{ "cos_theta": 0.73 \},                     // cos(angle(D, local manifold))\
+      "residue_pressure_map": \{\
+        "core": \{ "soot": 0.20, "ash": 0.66, "entropy": 0.14 \},\
+        "transitional": \{ "soot": 0.37, "ash": 0.45, "entropy": 0.18 \}\
+      \}\
+    \},\
+\
+    "transforms_applied": [\
+      \{\
+        "op": "weave",\
+        "args": \{ "A": "nA", "B": "nC", "alpha": 0.08 \},\
+        "reason": "high \uc0\u964  on local path; strengthen manifold",\
+        "invoker": "Spider",\
+        "house": "weaving"\
+      \},\
+      \{\
+        "op": "prune",\
+        "args": \{ "E": ["nA-nB"], "kappa": 0.10 \},\
+        "reason": "volatility > \uc0\u954  & low coherence",\
+        "invoker": "Schema",\
+        "house": "purification"\
+      \},\
+      \{\
+        "op": "lift",\
+        "args": \{ "N": "nB" \},\
+        "reason": "ash-rich + anchor starvation at surface",\
+        "invoker": "Schema",\
+        "house": "memory"\
+      \}\
+    ],\
+\
+    "provenance": \{\
+      "sources": ["schema", "bloom", "residue", "tracers"],\
+      "tracer_inputs": \{ "spider_tensions": ["nA-nB"], "bee_pollinations": [] \},\
+      "sigil_stack": ["purification.prune_edge", "weaving.reinforce_thread", "memory.lift_node"]\
+    \}\
+  \}\
+\}\
+\
+\
+Notes\
+motion_budget caps displacement per tick; prevents \'93tears.\'94\
+coherence.global_TC is your topological coherence score; latent_projected_drift tracks mismatch between latent vs projected geometry.\
+local_metrics carries per-node coherence (C_i) and residue pressure breakdowns to bias Lift/Sink/Prune decisions.\
+fields gives global overlays for the GUI (pigment gradient, drift alignment, residue pressure by sector).\
+transforms_applied is the audit trail (who invoked, why, house), which Owl can archive and the Ring can visualize.}

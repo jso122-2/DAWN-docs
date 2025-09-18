@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ## Error Metrics & Backtesting\
+\
+Forecast outputs must be continuously validated against realized tick data.  \
+This ensures that \\(F = P/A\\) projections remain reliable across horizons and ecological regimes.\
+\
+---\
+\
+### Error Metrics\
+\
+- **Mean Absolute Error (MAE)**  \
+  \\[\
+  MAE = \\frac\{1\}\{N\}\\sum_\{t=1\}^N |F_t^\\text\{forecast\} - F_t^\\text\{actual\}|\
+  \\]\
+  - Primary measure for short-term (1\'9610 tick) horizons.  \
+\
+- **Root Mean Squared Error (RMSE)**  \
+  \\[\
+  RMSE = \\sqrt\{\\frac\{1\}\{N\}\\sum_\{t=1\}^N (F_t^\\text\{forecast\} - F_t^\\text\{actual\})^2\}\
+  \\]\
+  - Sensitive to large divergences; used for mid- and long-term projections.  \
+\
+- **Drift Error**  \
+  - Compare projected vs realized drift vectors.  \
+  - Metric: \\(E_\\text\{drift\} = 1 - \\cos(\\theta)\\) (cosine distance).  \
+\
+- **Entropy Error**  \
+  - Difference between forecasted entropy curve and realized shimmer decay.  \
+  - Useful for testing how well EMA and Monte Carlo capture non-linear decay.  \
+\
+- **SCUP Prediction Accuracy**  \
+  - Binary evaluation: did forecasted **p_loss > \uc0\u952 ** align with actual coherence drop?  \
+  - Track Precision, Recall, F1 across epochs.  \
+\
+---\
+\
+### Backtesting Procedure\
+\
+- **Windowed Replay**  \
+  - Run sliding windows (100\'961000 ticks) through stored telemetry.  \
+  - Compare forecasts (short/mid/long) to realized outcomes.  \
+\
+- **Horizon-Specific Validation**  \
+  - Short-term: MAE target < 0.15.  \
+  - Mid-term: RMSE target < 0.25.  \
+  - Long-term: distributional fidelity (95% CI of forecasts contains actual \uc0\u8805  80% of runs).  \
+\
+- **Cross-Regime Testing**  \
+  - Replay stable, volatile, soot-heavy, and pigment-skewed epochs separately.  \
+  - Ensure error metrics are balanced (no blind spots).  \
+\
+- **Tracer Perturbation Tests**  \
+  - Simulate sudden removal or overspawn of Crow/Whale/Bee and verify Monte Carlo long-term forecasts capture the shift.  \
+\
+---\
+\
+### Telemetry & Logging\
+\
+- **Error Log** (per epoch):  \
+  ```json\
+  \{\
+    "epoch": "143000\'96144000",\
+    "mae_short": 0.11,\
+    "rmse_mid": 0.21,\
+    "drift_error": 0.07,\
+    "entropy_error": 0.12,\
+    "scup_f1": 0.83\
+  \}\
+Confidence Recalibration\
+Confidence scores attached to forecasts updated based on recent error.\
+Example: if mid-term RMSE rises above threshold, confidence in that band is reduced until retrained.\
+Owl Archive\
+All error metrics stored as part of Owl\'92s epoch summaries.\
+Operators can review historical accuracy to trust or tune forecast parameters.\
+Safeguards\
+If short-term MAE > threshold for 3 consecutive windows \uc0\u8594  switch to conservative mode (cap risk-taking sigils).\
+If long-term CI fails repeatedly \uc0\u8594  Whale/Owl must re-anchor baselines.\
+Forecasting Engine flags \'93unreliable horizon\'94 when confidence < 0.3, signaling operator oversight}

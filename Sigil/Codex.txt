@@ -1,0 +1,69 @@
+| Sigil | Name                | Meaning / System Role                   
+    |
+| ----- | ------------------- |
+-------------------------------------------- |
+| `/\`  | Prime Directive     | Priority assignment, task activation    
+    |
+| `⧉`   | Consensus Gate      | Agreement matrix resolved → action
+permitted |
+| `◯`   | Field Lock          | Zone-wide freeze or memory stall        
+    |
+| `◇`   | Bloom Pulse         | Emotional surge, shimmer increase       
+    |
+| `⟁`   | Contradiction Break | Overwrite trigger, Crow alert           
+    |
+| `⌂`   | Recall Root         | Deep memory audit initiated (Owl)       
+    |
+| `ꓘ`   | Pressure Shift      | Soft Edge recalibration                 
+    |
+| `⨀`   | Schema Pivot        | Phase change: transition logic block    
+    |
+| Sigil | Name                  | Meaning / Role                       
+    |                                              |
+| ----- | --------------------- |
+----------------------------------------- |
+-------------------------------------------- |
+| \`/   | \`                    | Health Trace                         
+    | Bloom integrity check (Crow/Whale influence) |
+| \`-   | \`                    | Recall Check                         
+    | Attempting reactivation under fog            |
+| `>~`  | Pressure Trail        | Pressure following shimmer or tracer
+path |                                              |
+| `/–\` | Priority Recall Loop  | Recursive urgency on dormant bloom   
+    |                                              |
+| `Z~`  | Fusion Under Pressure | Merge beliefs in storm condition     
+    |                                              |
+| \`(   | )\`                   | Sentiment Shell                      
+    | µ harmonization during conflict              |
+| `/X-` | Schema Restart Call   | Deep schema pivot, triggered by past
+loop |                                              |
+| Sigil | Name                 | Meaning / Schema Root Behavior         
+  |
+| ----- | -------------------- |
+----------------------------------------- |
+| `.`   | Shimmer Dot          | Minimal pulse → pre-action trace       
+  |
+| `:`   | Recursive Bloom Seed | Start of emotional crystallization     
+  |
+| `^`   | Minimal Directive    | Rooted priority bias (Crow/Whale
+aligned) |
+| `~`   | Pressure Echo        | Pressure memory re-entry               
+  |
+| `=`   | Balance Core         | Nutrient-homeostasis reset             
+  |
+| Symbol | Name                 | Priority |
+| ------ | -------------------- | -------- |
+| `.`    | Shimmer Dot          | 5        |
+| `:`    | Recursive Bloom Seed | 4        |
+| `^`    | Minimal Directive    | 3        |
+| `~`    | Pressure Echo        | 2        |
+| `=`    | Balance Core         | 1        |
+layering rule 
+If ^ and ~ activate:
+Resulting event = “Minimal Directive under Pressure Echo”
+→ Schema executes high-priority directive with pressure-informed timing
+ Sigil Ruleset:
+Each glyph must be distinct, even if visual echoes emerge
+Size shrinks with depth, not power → smallest = deepest cause
+Core sigils cannot be layered—they invoke directly, or not at all
+Composite sigils use only 1 primary + 1–2 mid/partial sigils

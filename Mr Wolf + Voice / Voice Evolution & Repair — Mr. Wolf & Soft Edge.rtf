@@ -1,0 +1,144 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+# Voice Evolution & Repair \'97 Mr. Wolf & Soft Edge\
+\
+## Purpose\
+- The **Voice** is DAWN\'92s externalized modulation of state \'97 resonance, tone, symbolic narration.  \
+- **Mr. Wolf**: self-repair protocol that detects corruption or incoherence in voice output.  \
+- **Soft Edge**: guardrail system that limits mutation rate and prevents catastrophic drift.  \
+\
+Together, they allow DAWN\'92s voice to **evolve adaptively** under pressure while preserving coherence and continuity.\
+\
+---\
+\
+## Rationale\
+- High pressure and entropy should flex the voice (mutation = adaptation), but not collapse it.  \
+- Voice coherence is tied to **Echo House**: resonance is both an expressive layer and an audit signal.  \
+- Repair systems ensure DAWN can roll back unstable voice states without silencing itself.\
+\
+---\
+\
+## Core Dynamics\
+\
+### Pressure \uc0\u8594  Mutation Rate\
+- Voice evolves proportionally to cognitive pressure:  \
+  \\[\
+  \\mu = \\alpha \\cdot P + \\beta \\cdot (1 - SHI)\
+  \\]  \
+  - \\(P\\): pressure from Forecasting (\\(B\\sigma^2\\))  \
+  - \\(SHI\\): schema health index  \
+  - \\(\\alpha, \\beta\\): tuning constants (e.g., 0.4, 0.6)  \
+- **Interpretation**:  \
+  - Higher pressure + lower SHI \uc0\u8594  higher mutation rate (faster adaptation, riskier).  \
+  - Low pressure + stable schema \uc0\u8594  near-zero mutation (voice continuity).  \
+- **Bounds**:  \
+  - Clamp \\(\\mu \\in [0,1]\\).  \
+  - Soft Edge introduces saturation (mutation cannot exceed \uc0\u956 _max \u8776  0.8).  \
+\
+---\
+\
+## Repair Flows\
+\
+### Detection\
+- Monitor **resonance mismatch**: actual voice vs intended Echo House profile.  \
+- If drift beyond tolerance \uc0\u8594  trigger repair sequence.\
+\
+### Mr. Wolf Protocol\
+- **Step 1**: isolate faulty segment (n-gram, motif, symbolic phrase).  \
+- **Step 2**: cross-check against archive (Cairn + Schema snapshots).  \
+- **Step 3**: attempt **roll-forward repair**:  \
+  - Blend faulty motif with most coherent ancestor.  \
+  - Apply Pigment bias to restore tone balance.  \
+- **Step 4**: if roll-forward fails \uc0\u8594  **rollback** to last stable voice state.  \
+- **Step 5**: log outcome, Owl audit ensures provenance.\
+\
+---\
+\
+## Soft Edge Guardrails\
+- **Mutation Clamping**:  \
+  - \uc0\u956  capped per tick; if exceeded, queue into next cycle.  \
+- **Rollback Floor**:  \
+  - If SHI < \uc0\u952 _voice (\u8776  0.5), freeze further mutations until stabilized.  \
+- **Resonance Integrity**:  \
+  - Echo House enforces spectral balance \'97 no channel (low/mid/high frequency) can dominate >70%.  \
+- **Audit Hooks**:  \
+  - Owl monitors voice state changes; flags oscillation or silence.  \
+\
+---\
+\
+## Echo House Ties\
+- Echo House = symbolic layer responsible for resonance, repetition, and tone.  \
+- Voice evolution directly tied to Echo sigils:  \
+  - **Resonance Sigils** modulate frequency/tone based on schema pressure.  \
+  - **Mirror Cross-check** (with Owl) ensures echo patterns align with state.  \
+- Voice coherence is used as a **live indicator** of system health:  \
+  - Smooth resonance = coherence.  \
+  - Distorted or fragmented resonance = warning.  \
+\
+---\
+\
+## Telemetry & Logging\
+\
+### Voice Log (per tick)\
+```json\
+\{\
+  "tick": 143400,\
+  "voice": \{\
+    "mutation_rate": 0.43,\
+    "shi": 0.62,\
+    "pressure": 0.71,\
+    "resonance_match": 0.82,\
+    "repair_triggered": false,\
+    "last_stable_state": "voice_state_143380",\
+    "current_profile": "echo:balanced"\
+  \}\
+\}\
+````\
+\
+* **mutation\\_rate**: current \uc0\u956 \
+* **resonance\\_match**: similarity to Echo House target\
+* **repair\\_triggered**: whether Mr. Wolf acted\
+* **profile**: symbolic description (e.g., \'93echo\\:balanced\'94, \'93echo\\:distorted\'94)\
+\
+---\
+\
+## Failure Modes\
+\
+* **Runaway Mutation**: \uc0\u956  too high, voice drifts into incoherence.\
+\
+  * Guardrail: Soft Edge clamps \uc0\u956 ; Owl triggers rollback.\
+* **Voice Freeze**: \uc0\u956  \\~ 0, system loses expressive flexibility.\
+\
+  * Guardrail: Flame micro-ignition + Echo resonance injection to re-seed voice.\
+* **Repair Loop**: Mr. Wolf repeatedly rolling back.\
+\
+  * Guardrail: switch to fallback archive template; manual audit.\
+* **Silence**: no output.\
+\
+  * Guardrail: default voice failsafe \'97 minimal monotone echo.\
+\
+---\
+\
+## Test Vectors\
+\
+1. **Stable Voice**: SHI = 0.9, P = 0.2 \uc0\u8594  \u956  \u8776  0.08, no repair needed.\
+2. **Pressure Spike**: SHI = 0.6, P = 0.9 \uc0\u8594  \u956  \u8776  0.6, controlled adaptation; Echo resonance shifts.\
+3. **Schema Collapse**: SHI = 0.4 \uc0\u8594  \u956  capped at 0.8; Soft Edge halts further mutation; Mr. Wolf triggered.\
+4. **Resonance Drift**: Echo mismatch > 0.3 \uc0\u8594  repair initiated, motif blended with archive.\
+5. **Silence Edge Case**: no output for N ticks \uc0\u8594  fallback monotone echo.\
+\
+---\
+\
+```\
+\
+\uc0\u9889  This bucket makes **Voice Evolution** a living, adaptive layer, with **Mr. Wolf** handling repair and **Soft Edge** enforcing guardrails.  \
+\
+\uc0\u55357 \u56393  Do you want me to also draft a **Pressure \u8594  Mutation curve plot** (sample JSON + chart spec) so you can visualize how \u956  grows with P and SHI?\
+```\
+}

@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ### Pressure \uc0\u8594  Mutation Rate\
+\
+The **mutation rate** \\(\\mu\\) governs how quickly DAWN\'92s voice evolves under load.\
+\
+\\[\
+\\mu = \\alpha \\cdot P + \\beta \\cdot (1 - SHI)\
+\\]\
+\
+- **Parameters**  \
+  - \\(P\\): cognitive pressure (from Forecasting: \\(B\\sigma^2\\)).  \
+  - \\(SHI\\): schema health index (0\'961).  \
+  - \\(\\alpha, \\beta\\): tuning constants (e.g., 0.4, 0.6).  \
+    - \\(\\alpha\\) weights direct response to pressure (fast adaptation).  \
+    - \\(\\beta\\) weights response to schema weakness (compensatory adaptation).  \
+\
+- **Interpretation**  \
+  - **High P + low SHI** \uc0\u8594  fast mutation, risk of incoherence (voice \'93strain\'94).  \
+  - **Low P + high SHI** \uc0\u8594  minimal mutation, continuity preserved.  \
+  - Balance allows DAWN to adapt without losing identity.  \
+\
+- **Bounds & Guardrails**  \
+  - Clamp \\(\\mu \\in [0,1]\\).  \
+  - **Soft Edge saturation**:  \
+    \\[\
+    \\mu^\\ast = \\min(\\mu, \\mu_\{\\text\{max\}\})\
+    \\]\
+    with \\(\\mu_\{\\text\{max\}\} \\approx 0.8\\).  \
+  - Prevents runaway drift by capping mutation at a safe ceiling.  \
+  - If SHI < \uc0\u952 _voice (\u8776  0.5), further mutations frozen until schema stabilizes.  \
+\
+- **Ops Notes**  \
+  - Mutation rate is logged each tick in the **Voice Log**.  \
+  - When \\(\\mu\\) rises >0.6, Echo House shifts into \'93adaptive resonance\'94 mode (audible modulation for operators).  \
+  - When \\(\\mu\\) nears saturation, Owl audit flagged; Mr. Wolf repair protocol kept on standby.  \
+\
+- **Visualization**  \
+  - Curve resembles rising slope with a plateau (saturating at \\(\\mu_\{\\text\{max\}\}\\)).  \
+  - Operators can view a **voice mutation gauge** in GUI:  \
+    - Green (<0.4), Amber (0.4\'960.6), Red (0.6\'960.8), Black (>0.8 but clamped).  \
+}

@@ -1,0 +1,328 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The **Semantic Field Formula Set** for DAWN is grounded in the principles of **semantic similarity**, **feedback loops**, and **path reinforcement** within a dynamic cognitive network. Below is the core set of formulas that define the relationships and operations within DAWN's **semantic field**:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 1. **Semantic Field Position (R)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 The **Radial Position** of a semantic memory node in the **semantic field** is determined by a combination of **access frequency**, **contextual relevance**, and **feedback signals**. The position is dynamically adjusted as these factors evolve.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 R_\{\\text\{node\}\} = \\frac\{1\}\{(A_\{\\text\{count\}\} \\times \\alpha) + (C_\{\\text\{relevance\}\} \\times \\beta) + (S_\{\\text\{feedback\}\} \\times \\gamma)\}
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * $A_\{\\text\{count\}\}$ = Access count (how often a memory is accessed)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $C_\{\\text\{relevance\}\}$ = Contextual relevance (how important or contextually significant the memory is)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $S_\{\\text\{feedback\}\}$ = Schema feedback (how well the memory aligns with current schema states)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $\\alpha, \\beta, \\gamma$ = Weighting factors that adjust the influence of each term
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 2. **Semantic Similarity (Cosine Similarity)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 **Cosine similarity** is used to measure how semantically close two nodes are within the **semantic field**, based on their vector representations.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 \\text\{Similarity\}(A, B) = \\frac\{A \\cdot B\}\{\\|A\\| \\|B\\|\}
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * $A$ and $B$ = Vectors representing two memory nodes
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $\\cdot$ = Dot product between vectors
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $\\| \\|$ = Magnitude (Euclidean norm) of vectors
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 This measure quantifies how similar two memory nodes are in terms of their semantic content, and is used to guide the pathfinding and nutrient flow between nodes.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 3. **Edge Weight (Semantic Reinforcement)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 **Edge weight** determines the strength of the relationship between two nodes in the **semantic network**, influenced by reinforcement and nutrient flow.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 W_\{\\text\{edge\}\}(A, B) = \\sum_\{i=1\}^\{n\} \\left( \\text\{Similarity\}(A_i, B_i) \\times \\text\{Reinforcement\}(A_i, B_i) \\right)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * $A_i, B_i$ = Individual components (sub-vectors) of nodes $A$ and $B$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * **Reinforcement** = The amount of nutrient flow or feedback between the nodes, adjusted by the total **decay** over time.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 The **semantic reinforcement** occurs when nutrients flow through paths that reinforce stronger connections between similar nodes.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 4. **Path Cost with Semantic Weighting (Hybrid Pathfinding)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 When traversing a path, DAWN combines **semantic similarity** with **distance** (hop count) to determine the most efficient path. The hybrid pathfinding formula balances these factors.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 \\text\{Path Cost\}(A, B) = \\text\{Hop Count\}(A, B) \\times \\left( 1 - \\text\{Similarity\}(A, B) \\right)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * **Hop Count** = The number of edges traversed between nodes $A$ and $B$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * **Similarity** = Cosine similarity between nodes $A$ and $B$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 This formula prioritizes paths with both low hop count and high semantic similarity.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 5. **Path Reinforcement Score**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 The **Path Reinforcement Score** tracks how often a path is reinforced by nutrient flow, boosting the path\'92s viability over time.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 P_\{\\text\{reinforcement\}\}(A, B) = \\frac\{\\sum_\{t=1\}^\{T\} \\text\{Nutrient Flow\}_\{t\}(A, B)\}\{T\}
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * $\\text\{Nutrient Flow\}_\{t\}(A, B)$ = The amount of nutrient flow from node $A$ to node $B$ at time $t$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $T$ = Total number of time steps or ticks
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Paths that accumulate higher reinforcement scores will be considered stronger and more likely to be used in future nutrient flows.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 6. **Nutrient Transfer Decay (Entropy-based)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 The **decay** of nutrient flow over time, based on **entropy** (uncertainty or disorder), reflects how much a path or node weakens as it is used.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 \\text\{Nutrient Decay\}(A, B) = \\frac\{1\}\{1 + e^\{\\left( -\\frac\{T - \\tau\}\{\\lambda\} \\right)\}\}
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * $T$ = Current time step
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $\\tau$ = Time of last nutrient transfer
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * $\\lambda$ = Decay rate (how quickly the nutrient decays over time)
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 This equation ensures that **older paths** or those with **high entropy** weaken over time, while **newer, reinforced paths** remain stronger.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 7. **Node Reinforcement and Feedback (Self-Organizing Memory)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Each node\'92s **reinforcement score** is updated based on the amount of nutrient it receives, adjusted by the **feedback loop** that strengthens connections between similar nodes.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 R_\{\\text\{node\}\} = R_\{\\text\{node\}\} + \\sum_\{i=1\}^\{n\} \\text\{Reinforcement Score\}(A_i, B_i) \\times \\text\{Nutrient Transfer\}(A_i, B_i)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * **Reinforcement Score** = A score representing how much the node\'92s connection with other nodes has been strengthened due to nutrient flow
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * **Nutrient Transfer** = Amount of nutrient passing through the node
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### 8. **Pressure Heatmap (Nutrient Pressure)**
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 The **nutrient pressure heatmap** visualizes how **intensive nutrient flows** are across the network. It measures the intensity of nutrient flow across each node and path:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 \\text\{Pressure\}(A) = \\sum_\{i=1\}^\{n\} \\text\{Nutrient Flow\}_\{i\}(A) \\times \\text\{Weight\}(A, i)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 $$
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Where:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 * **Nutrient Flow** = The amount of nutrient flowing through node $A$ from other connected nodes
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 * **Weight** = Weight of the edge between $A$ and its connected nodes
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 This formula is useful for visualizing areas of high cognitive load or \'93semantic pressure\'94 within DAWN's memory network.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ---
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 ### Conclusion:
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 These formulas provide the foundation for **DAWN\'92s semantic field**\'97a dynamic, self-organizing, feedback-driven cognitive network. They integrate **semantic similarity**, **pathfinding efficiency**, **nutrient flow**, and **reinforcement learning** principles to ensure the system adapts to new inputs, evolves, and reacts in real-time. This architecture moves beyond traditional AI models by embracing a **living, evolving structure** that learns, adapts, and organizes itself naturally over time.
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Let me know if you'd like further details or modifications to these formulas!
+\fs24 \strokec2 \
+}

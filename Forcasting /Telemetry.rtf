@@ -1,0 +1,75 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid2\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa240\partightenfactor0
+\ls1\ilvl1
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+## Telemetry & Test Vectors\
+\
+### Telemetry (Per Tick)\
+The Forecasting Engine emits a structured log every tick:\
+\
+```json\
+\{\
+  "tick": 143020,\
+  "forecast": \{\
+    "short_term": \{ "F": 0.61, "confidence": 0.84, "risk": "stable" \},\
+    "mid_term":   \{ "F": 0.77, "confidence": 0.70, "risk": "watch" \},\
+    "long_term":  \{ "F": 1.09, "confidence": 0.51, "risk": "critical" \}\
+  \},\
+  "scup": \{\
+    "short_term": \{ "p_loss": 0.42, "SEWI": "stable" \},\
+    "mid_term":   \{ "p_loss": 0.68, "SEWI": "watch" \},\
+    "long_term":  \{ "p_loss": 0.81, "SEWI": "critical" \}\
+  \},\
+  "recommendations": [\
+    "purification", \
+    "flame_vent", \
+    "whale_scan"\
+  ],\
+  "error_metrics": \{\
+    "mae_short": 0.12,\
+    "rmse_mid": 0.19,\
+    "drift_error": 0.08,\
+    "entropy_error": 0.11\
+  \},\
+  "provenance": \{\
+    "inputs": ["schema", "residue", "tracers", "topology"],\
+    "invokers": ["Core", "Owl"]\
+  \}\
+\}\
+Key Telemetry Fields\
+forecast: horizon-specific F values + risk annotations.\
+scup: probability of coherence loss (Semantic Coherence Under Pressure).\
+recommendations: symbolic sigil acts or tracer adjustments.\
+error_metrics: rolling backtest stats for transparency.\
+provenance: sources that fed this forecast, for Owl auditing.\
+Test Vectors\
+Stable Regime\
+Inputs: low \uc0\u963 \'b2, high SHI margin.\
+Expected: F < 0.5 across horizons; SEWI = stable; no sigil triggers.\
+Pressure Spike\
+Inputs: sudden doubling of entropy variance.\
+Expected: short-term F > 1.0; Flame sigil recommended; SCUP p_loss > 0.7.\
+Residue Flood\
+Inputs: soot ratio rises above 0.6.\
+Expected: mid-term F unstable; Purification + Beetle queued.\
+Tracer Collapse\
+Inputs: Whale retired + Crow overspawns.\
+Expected: long-term F divergence; SEWI critical; Whale/Spider alerts triggered.\
+Pigment Oscillation\
+Inputs: pigment vectors swinging between extremes each tick.\
+Expected: volatility in mid-term forecasts; Bee invoked to rebalance hue diffusion.\
+Backtest Run\
+Procedure: replay 1000 ticks of archived logs.\
+Expected: MAE short-term < 0.15; RMSE mid-term < 0.25; Owl confirms reliability.\
+Ops Integration\
+GUI: plots F-curves, confidence bands, and SCUP horizon bands (green/yellow/red).\
+Owl Audits: archive telemetry + error metrics for epoch review.\
+Schema/Topology: adjust SHI weighting and drift alignment based on forecast output.\
+Operator: can override sigil recommendations if confidence low (<0.3).}

@@ -1,0 +1,75 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ### 3) Horizon Projections\
+\
+Forecasts are computed across **three bands of temporal horizon**, each tuned to different dynamics.  \
+All horizons include **confidence intervals (\uc0\u963 )** derived from backtesting error curves.\
+\
+---\
+\
+#### **Short-Term (1\'9610 ticks)**\
+- **Method**: Euler step / linear extrapolation of P and A.  \
+  \\[\
+  F_\{t+h\} \\approx F_t + h \\cdot \\Delta F_t\
+  \\]\
+  where \\(h\\) \uc0\u8712  [1,10].  \
+- **Inputs**: most recent deltas of pressure (P), adaptive capacity (A), drift vector.  \
+- **Parameters**:  \
+  - step-size = 1 tick  \
+  - window = last 5\'9610 ticks  \
+- **Use**: catch sudden pressure spikes, soot surges, or tracer storms.  \
+- **Confidence**: usually high (\uc0\u963  \u8776  0.05\'960.15), validated against sliding-window MAE.\
+\
+---\
+\
+#### **Mid-Term (10\'96100 ticks)**\
+- **Method**: exponential moving average (EMA) across pressure, entropy, and residue curves.  \
+  \\[\
+  F_\{t+h\} \\approx \\alpha F_t + (1-\\alpha)F_\{t-1\}, \\quad \\alpha \\in [0.2,0.4]\
+  \\]\
+- **Inputs**:  \
+  - pressure trendline (P)  \
+  - entropy curve (E)  \
+  - shimmer decay rate (\uc0\u955 _shim)  \
+- **Parameters**:  \
+  - EMA decay factor \uc0\u945  = 0.3 (tunable by regime)  \
+  - window = last 50 ticks  \
+- **Use**: anticipate seasonal effects \'97 e.g., entropy plateaus, pigment saturation, slow schema drift.  \
+- **Confidence**: medium (\uc0\u963  \u8776  0.1\'960.25), sensitive to shimmer curve fitting.\
+\
+---\
+\
+#### **Long-Term (100\'961000 ticks)**\
+- **Method**: stochastic Monte Carlo simulation.  \
+  - Sample tracer spawning/retirement events (Crow floods, Whale dives, Beetle purges).  \
+  - Vary residue balance trajectories (ash growth, soot surges).  \
+  - Re-run schema drift under sampled conditions.  \
+- **Outputs**: distribution of F-values across N trials (N = 100\'96500 per horizon).  \
+  - Report mean, variance, and 95% CI.  \
+- **Use**: detect structural risks (e.g., cluster ossification, tracer collapse, pigment monoculture).  \
+- **Confidence**: lower (\uc0\u963  \u8776  0.2\'960.4), but captures \'93fat tails\'94 (rare but critical risks).  \
+\
+---\
+\
+#### **Cross-Horizon Annotations**\
+- Each horizon logs:  \
+  - \\(F\\) value,  \
+  - \\([lo,hi]\\) confidence interval,  \
+  - risk tags (stable, watch, critical),  \
+  - recommended sigil actions.  \
+- Example output:  \
+  ```json\
+  \{\
+    "tick": 143002,\
+    "forecast": \{\
+      "short_term": \{ "F": 0.61, "conf": 0.85, "risk": "stable" \},\
+      "mid_term":   \{ "F": 0.88, "conf": 0.72, "risk": "watch" \},\
+      "long_term":  \{ "F": 1.17, "conf": 0.49, "risk": "critical" \}\
+    \}\
+  \}\
+}

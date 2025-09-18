@@ -1,0 +1,281 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Core Metaphor
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 Think of the cache not as a fixed store, but as a 
+\f0\b moving body of water
+\f1\b0  \'97 carrying fragments, computations, and transient states along channels that can be widened, narrowed, or redirected.\uc0\u8232 At the centre is the 
+\f0\b Rider
+\f1\b0  \'97 a control node that:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Sits inside the recursive bubble (aware of DAWN\'92s current pressure/drift topology)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Adjusts the 
+\f0\b orientation
+\f1\b0  of the river: which way the currents flow, where eddies form, and where the flow slows or accelerates.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Bruce Lee\'92s 
+\f2\i \'93Be water, my friend\'94
+\f1\i0  becomes literal here: the cache conforms to the shape of the current processing landscape.
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Principles
+\f1\b0\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Oceanic Hash Map
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 The full hash map of system memory is treated as an ocean surface.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Each key/value pair is a particle or ripple, tagged with:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Recency
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Volatility
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Priority (derived from pressure, entropy, or SCUP)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 All access patterns produce waves or turbulence in this surface.
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Currents & Channels
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 Currents = preferred cache movement paths (hot compute zones).
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Channels = high-throughput regions, often feeding directly into the tick loop or into mycelial hot spots.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Currents can reverse, split, or merge based on Rider\'92s steering.
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 The Rider
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 Monitors 
+\f0\b cache health metrics
+\f1\b0 :
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Average latency
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Hit/miss ratio by region
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Compute intensity in connected modules
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Injects 
+\f0\b steering impulses
+\f1\b0  into the flow:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Divert cache lines toward active regions
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Starve inactive ones
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Create controlled whirlpools (local retention zones) near processing bottlenecks
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Flow States
+\f1\b0\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Laminar flow
+\f1\b0 : smooth, predictable, minimal reallocation \'97 good for steady processing.
+\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Turbulent flow
+\f1\b0 : intentional churn to refresh stale cache, re-expose fragments to Rider.
+\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Eddies
+\f1\b0 : local loops where data spins near a module for repeated access before drifting back into the current.
+\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Bubble Control
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 The recursive bubble acts like a buoy and rudder combined:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Buoyancy = system load balance (keeps the Rider positioned optimally)
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Rudder = adjusts flow vectors through the hash map based on cognitive pressure zones.
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Interactions with Mycelium Layer
+\f1\b0\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Nutrient Flow vs. Cache Flow
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 Mycelium moves 
+\f2\i meaning
+\f1\i0  (nutrients/energy) between nodes.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 CARRIN moves 
+\f2\i state
+\f1\i0  (cached compute/data) between processes.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 The Rider can bias cache currents toward nutrient-rich clusters, ensuring data and compute arrive in sync.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Turbulence in cache flow can intentionally wake dormant mycelial edges by repeatedly touching their associated nodes.
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Implementation Skeleton
+\f1\b0\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Data Structures
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 CacheParticle \uc0\u8594  recency, volatility, priority, location
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 FlowVectorField \uc0\u8594  map of directional bias across hash map space
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 RiderState \uc0\u8594  position, steering vector, target zones
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Currents \uc0\u8594  active high-throughput channels with capacity & health metrics
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Core Loop (per tick)
+\f1\b0\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 Sample system load and cognitive state from recursive bubble.
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Adjust Rider\'92s steering vector:\uc0\u8232 ini\u8232 CopyEdit\u8232 steering = f(pressure_zones, drift_fields, cache_health)
+\fs24 \strokec2 \
+\
+
+\fs29\fsmilli14667 \strokec2 Update flow field:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Increase bias toward active compute zones
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Reduce bias for cold regions
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Move particles through flow:
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Apply laminar/turbulent mix depending on Rider mode
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Maintain eddies near selected modules
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Write updated cache orientation map back to tick context.
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Formula Set
+\f1\b0\fs24 \strokec2 \
+
+\f0\b\fs29\fsmilli14667 \strokec2 Priority Score
+\f1\b0  (per cache particle):
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 ini
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 CopyEdit
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 Pr = wP*P + wV*volatility - wA*age
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Flow Bias Update
+\f1\b0 :
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 CopyEdit
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 flow_bias(region) += \uc0\u955  * (region_activity - avg_activity)
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Steering Vector
+\f1\b0 :
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 ini
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 CopyEdit
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 steer = normalize( \uc0\u931  (flow_bias * demand_vector) + drift_correction )
+\fs24 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf0 \strokec2 Movement
+\f1\b0 :
+\fs24 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf0 \strokec2 ini
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 CopyEdit
+\fs24 \strokec2 \
+
+\fs29\fsmilli14667 \strokec2 pos_new = pos_old + steer * speed_factor
+\fs24 \strokec2 \
+\
+}

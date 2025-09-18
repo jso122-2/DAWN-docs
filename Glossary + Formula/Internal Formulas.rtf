@@ -1,0 +1,109 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Here\'92s a compact, math-first spec for **Pressure** and **SCUP**.\
+\
+---\
+\
+## Signals\
+\
+* Tick signals $s=\\\{\\text\{entropy\},\\,\\text\{tracer\},\\,\\text\{pigment\}\\\}$\
+* Variance: $\\sigma^2=\\operatorname\{Var\}(s_\{t-k:t\})$ (window 8\'9616 ticks)\
+\
+## Cognitive Pressure\
+\
+$$\
+P = B \\cdot \\sigma^2,\\qquad \\hat P=\\frac\{P\}\{P_\{\\text\{safe\}\}\}\
+$$\
+\
+* $B\\in[0,1]$: effective bandwidth (nodes\'d7health\'d7energy), capped.\
+* Use $\\hat P$ for thresholds.\
+\
+## Adaptive Capacity\
+\
+$$\
+A = w_N N + w_T S_T + w_S M_\{\\text\{SHI\}\},\\quad w_\\bullet\\ge0,\\,\\sum w=1\
+$$\
+\
+* $N$: nutrient/energy headroom; $S_T$: tracer slack; $M_\{\\text\{SHI\}\}=\\max(0,\\text\{SHI\}-\\theta_\{\\text\{safe\}\})$.\
+\
+## Forecast Index\
+\
+$$\
+F=\\frac\{P\}\{A\},\\quad F^\\ast=\\alpha F+(1-\\alpha)F^\\ast_\{t-1\}\\ (\\alpha\\in[0.2,0.6])\
+$$\
+\
+---\
+\
+## SHI (composite, schematic)\
+\
+$$\
+\\text\{SHI\}=1-\\big(\\alpha E_s+\\beta V_e+\\gamma D_t+\\delta(1-S_c)+\\phi_\{\\text\{soot/ash\}\}\\big)\
+$$\
+\
+* $E_s$: sigil entropy; $V_e$: edge volatility; $D_t$: tracer divergence; $S_c$: SCUP coherence term.\
+\
+---\
+\
+## SCUP: Probability of Coherence Loss\
+\
+$$\
+p_\{\\text\{loss\}\}=\\sigma\\!\\big(a F^\\ast + b \\hat P + c\\,\\Delta\\!\\text\{drift\} + d\\,\\bar\\tau - e A - f\\,\\text\{SHI\}\\big)\
+$$\
+\
+* $\\Delta\\!\\text\{drift\}$: forecast vs realized drift (cosine distance).\
+* $\\bar\\tau$: mean tension of hot edges.\
+* $\\sigma(x)=\\frac\{1\}\{1+e^\{-x\}\}$.\
+* Action if $p_\{\\text\{loss\}\}>\\theta$ (e.g., 0.7).\
+\
+### Zones (typical)\
+\
+* Green: $F^\\ast<0.5\\ \\land\\ \\text\{SHI\}\\ge0.70$\
+* Amber: $0.5\\!\\le\\!F^\\ast\\!<\\!1.0$ or near 0.70\
+* Red: $1.0\\!\\le\\!F^\\ast\\!<\\!1.5$ or $<0.55$\
+* Black: $F^\\ast\\!\\ge\\!1.5$ or $<0.40$ (hysteresis \uc0\u916 \u8776 0.05)\
+\
+---\
+\
+## SCUP Controller (outer loop)\
+\
+$$\
+e_t=S_\{\\text\{target\}\}-\\text\{SHI\}_t,\\quad\
+u_t=\\operatorname\{clip\}\\big(k_P e_t+k_I\\!\\sum e+k_D(e_t-e_\{t-1\}),\\,0,1\\big)\
+$$\
+\
+* $u_t$: actuation budget split by zone weights into \{Purification, Weave, Flame, Whale, Beetle\}.\
+\
+## Pulse (inner loop, per tick)\
+\
+* Slots $\\leftarrow u_t$; rate limits (e.g., Purif\uc0\u8804 2, Weave\u8804 1, Flame\u8804 1).\
+* Order by zone; enforce motion/nutrient/sigil guards.\
+\
+---\
+\
+## Defaults (tune)\
+\
+* $\\theta_\{\\text\{safe\}\}=0.70$, zone SHI: 0.70 / 0.55 / 0.40\
+* $w_N,w_T,w_S=\\\{0.5,0.3,0.2\\\}$\
+* $k_P,k_I,k_D=\\\{0.5,0.1,0.2\\\}$\
+\
+---\
+\
+## Minimal Telemetry\
+\
+```json\
+\{\
+  "tick": 143520,\
+  "B": 0.74, "sigma2": 1.12, "P_hat": 0.86,\
+  "A": \{"N":0.42,"S_T":0.23,"M_SHI":0.12\},\
+  "F": 0.98, "F_smooth": 0.91,\
+  "SHI": 0.62, "drift_delta": 0.11, "tau_mean": 0.21,\
+  "p_loss": 0.69, "zone": "amber",\
+  "u": 0.33, "alloc": \{"purif":0.15,"weave":0.09,"flame":0.06,"whale":0.03\}\
+\}\
+```\
+}

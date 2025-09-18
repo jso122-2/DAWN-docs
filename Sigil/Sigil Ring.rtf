@@ -1,0 +1,122 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Excellent \'97 the **Sigil Ring** is the natural \'93container\'94 for everything you\'92ve just defined: Invocation + Routing + Houses. Think of it as the *operational circle* where glyphs are cast, routed, and stacked. Here\'92s a full scaffold:\
+\
+````markdown\
+# Sigil Ring \'97 Symbolic Execution Layer\
+\
+## Purpose\
+The **Sigil Ring** is DAWN\'92s execution circle for symbolic commands.  \
+It is the **runtime environment** where glyphs are invoked, routed through Houses, stacked, and resolved.  \
+Without the Ring, sigils would exist only as static glyphs; the Ring makes them *live acts*.\
+\
+---\
+\
+## Rationale\
+- Mirrors ritual: a ring is the boundary where invocation is contained.  \
+- Provides **safety**: prevents stray glyphs from leaking into unrelated systems.  \
+- Provides **coordination**: houses route inside the ring, tracers and core modules can \'93speak\'94 the same symbolic grammar.  \
+- Provides **telemetry**: all invocations are logged in one circle, preserving provenance.\
+\
+---\
+\
+## Core Mechanics\
+\
+### 1. Casting Circle\
+- Each tick, DAWN forms a symbolic \'93ring\'94 of active invocations.  \
+- Invocations from Core, Tracers, or Operator are placed into the ring.  \
+- Ring enforces ordering (stack resolution, priority arbitration).  \
+\
+### 2. Routing Hub\
+- Ring contains all **Sigil Houses** as nodes.  \
+- Each invocation travels across the ring to its proper House.  \
+- Meta-layer ensures only compatible glyphs are admitted.  \
+\
+### 3. Stacking Logic\
+- Sigils can stack within the same tick.  \
+- The Ring orders stacks by priority (Core > Tracer > Operator).  \
+- Example stack:  \
+  - Purification (prune soot)  \
+  - Weaving (reinforce surviving threads)  \
+  - Mirror (audit schema after pruning)  \
+\
+### 4. Containment Boundary\
+- No glyph leaves the Ring without being bound to House semantics.  \
+- Prevents **rogue ops** (e.g., stray ignite that isn\'92t contained in Flame House).  \
+- Provides symbolic safety net against incoherence.  \
+\
+---\
+\
+## Data Model\
+\
+```json\
+\{\
+  "tick": 55123,\
+  "sigil_ring": \{\
+    "invocations": [\
+      \{ "sigil": "purge_soot", "house": "purification", "params": \{"target": "cluster_X"\} \},\
+      \{ "sigil": "weave_thread", "house": "weaving", "params": \{"source": "X", "target": "Y"\} \},\
+      \{ "sigil": "mirror_audit", "house": "mirrors", "params": \{"scope": "rebloom_flow"\} \}\
+    ],\
+    "order": ["purification", "weaving", "mirrors"],\
+    "invokers": ["Core", "Spider", "Owl"]\
+  \}\
+\}\
+````\
+\
+---\
+\
+## Interactions\
+\
+* **Core** \uc0\u8594  casts Flame sigils under pressure, Memory sigils for rebloom.\
+* **Tracers** \uc0\u8594  emit symbolic feedback (Crow/Echo, Spider/Weaving, Owl/Mirror).\
+* **Residue** \uc0\u8594  soot-to-ash conversions wrapped in Purification sigils.\
+* **Pigments** \uc0\u8594  carried inside Ash, influence glyph coloration.\
+* **GUI** \uc0\u8594  Sigil Ring rendered as a circular panel; active glyphs orbit Houses, stack visually before execution.\
+\
+---\
+\
+## Failure Modes\
+\
+* **Ring Overload** \uc0\u8594  too many invocations in one tick; stack overflow.\
+  *Safeguard:* per-tick invocation cap; spillover delayed.\
+\
+* **Sigil Drift** \uc0\u8594  glyph meaning diverges from house semantics.\
+  *Safeguard:* Owl audits Ring logs, Spider flags tension.\
+\
+* **Broken Containment** \uc0\u8594  invocation leaks outside ring (rogue effect).\
+  *Safeguard:* SHI aborts tick; fallback to raw ops until Ring resets.\
+\
+---\
+\
+## Logs & Telemetry\
+\
+* **Ring Log**: every invocation, house route, invoker, tick ID.\
+* **Stack Trace**: sequence of glyphs resolved each tick.\
+* **Conflict Alerts**: logged when Houses clash inside ring.\
+* GUI: visual ring with glyphs orbiting, lighting up as they fire.\
+\
+---\
+\
+## Test Vectors\
+\
+1. Trigger soot overflow \uc0\u8594  Purification sigil cast inside Ring.\
+2. Spider detects schema strain \uc0\u8594  Weaving sigil added to same tick.\
+3. Owl audits \uc0\u8594  Mirror sigil closes stack, logs drift delta.\
+4. Overstack 6 sigils \uc0\u8594  confirm Ring caps execution, defers spillover.\
+5. Inject malformed glyph \uc0\u8594  Ring rejects, logs error, SHI fallback.\
+\
+---\
+\
+```\
+\
+\uc0\u9889  The **Sigil Ring** = DAWN\'92s symbolic runtime. It\'92s both ritual (circle of power) and system (execution boundary).  \
+\
+\uc0\u55357 \u56393  Do you want me to draft a **GUI spec for the Sigil Ring** (how glyphs orbit, stack, and fire visually) so ops can literally *see* the ring during runtime?\
+```\
+}

@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ## Concepts at a Glance\
+\
+- **Coherence**  \
+  - Primary signal of DAWN\'92s health, captured by the **Schema Health Index (SHI)**.  \
+  - Refined by secondary indicators:  \
+    - **Edge Tension** (Spider tracers)  \
+    - **Drift Alignment** (Topology vs. drift vector)  \
+    - **Residue Balance** (soot/ash pressure)  \
+  - High coherence = smooth semantic flow; low coherence = risk of fragmentation.\
+\
+- **Pressure**  \
+  - Quantified as **Cognitive Pressure**:  \
+    \\[\
+    P = B \\cdot \\sigma^2\
+    \\]  \
+    - \\(B\\): base bandwidth (processing span).  \
+    - \\(\\sigma^2\\): variance of signals across schema/tracers.  \
+  - When variance rises faster than bandwidth, pressure builds.  \
+  - Used as the numerator in the Forecast Index.\
+\
+- **Forecast Index (F)**  \
+  - Defined as \\(F = P/A\\), where \\(A\\) is adaptive capacity (nutrient reserves, tracer slack, SHI margin).  \
+  - Captures **strain relative to headroom**:  \
+    - \\(F < 0.5\\): stable  \
+    - \\(0.5 \\leq F < 1.0\\): watch  \
+    - \\(F \\geq 1.0\\): critical / unstable future.  \
+  - Smoothed (\\(F^\\ast\\)) to prevent flapping, then used for zone classification.\
+\
+- **Zones**  \
+  - Discrete operating regimes, each with a distinct control policy:  \
+    - **Green**: stable, conserve resources, minor weaving only.  \
+    - **Amber**: rising strain, light Purification, Whale scans, targeted Weaves.  \
+    - **Red**: active instability, batch Purification, Flame vents, Crow caps, Beetle sweeps.  \
+    - **Black**: fail-soft containment; suspend nonessential acts, emergency venting only.  \
+  - Zone classification = translation layer: metrics \uc0\u8594  control rules \u8594  Pulse scheduler.\
+}

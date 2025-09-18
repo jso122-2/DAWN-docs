@@ -1,0 +1,77 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Here\'92s a tightened, drop-in expansion for your **Forecasting Function** section\'97keeps the core $F=\\frac\{P\}\{A\}$ but makes it operational.\
+\
+````markdown\
+### 2) Forecasting Function\
+\
+\\[\
+F = \\frac\{P\}\{A\}\
+\\]\
+\
+- **A (Adaptive Capacity)**: effective headroom combining three cushions:\
+  \\[\
+  A = w_N \\,\\underbrace\{N\}_\{\\text\{nutrient reserves\}\}\
+    + w_T \\,\\underbrace\{S_T\}_\{\\text\{tracer slack\}\}\
+    + w_S \\,\\underbrace\{M_\{SHI\}\}_\{\\text\{schema margin\}\}\
+  \\]\
+  - **N**: available nutrient/energy budget (mycelial + ash yield)\
+  - **\\(S_T\\)**: tracer slack (idle/retirable tracers \'d7 their recoverable capacity)\
+  - **\\(M_\{SHI\}\\)**: health headroom (e.g., \\(M_\{SHI\}=\\max(0, \\text\{SHI\}-\\theta_\{\\text\{safe\}\})\\))\
+  - \\(w_N,w_T,w_S \\ge 0,\\; w_N+w_T+w_S=1\\) (learned or set per regime)\
+\
+- **Interpretation**  \
+  - High \\(P\\) / low \\(A\\) \uc0\u8594  **unstable** horizon (intervene).  \
+  - Low \\(P\\) / high \\(A\\) \uc0\u8594  **stable** horizon (coast).\
+\
+- **Normalization & Bounds**  \
+  - Prevent divide-by-near-zero: \\(A \\leftarrow \\max(A,\\epsilon)\\) with \\(\\epsilon\\!\\in\\![10^\{-6\},10^\{-3\}]\\).  \
+  - Clamp for comparability across regimes: \\(\\tilde F = \\min\\!\\big( F/F_\\text\{scale\}, F_\\text\{cap\}\\big)\\).  \
+  - Typical policy thresholds:  \
+    - \\(\\tilde F < 0.5\\): stable  \
+    - \\(0.5 \\le \\tilde F < 1.0\\): watch  \
+    - \\(\\tilde F \\ge 1.0\\): act\
+\
+- **Smoothing (avoid thrash)**  \
+  \\[\
+  F_t^\\ast=\\alpha F_t + (1-\\alpha)F_\{t-1\}^\\ast,\\quad \\alpha \\in [0.2,0.6]\
+  \\]\
+  Use \\(F_t^\\ast\\) for decisions; keep raw \\(F_t\\) for telemetry.\
+\
+- **Control Hooks (policy layer)**  \
+  - **If** \\(F^\\ast \\uparrow\\) rapidly: pre-spawn Whale (context), cap Crow, queue Purification.  \
+  - **If** \\(A\\) limited by \\(M_\{SHI\}\\): schedule Mirrors (audits) + Weaving (reinforcement).  \
+  - **If** nutrients drive \\(A\\downarrow\\): trigger Beetle recycling; defer heavy ops.\
+\
+- **Confidence & Error**  \
+  - Attach \\(\\mathrm\{conf\}\\in[0,1]\\) from backtesting (MAE/RMSE vs realized \\(P/A\\)).  \
+  - Defer aggressive actions if \\(F^\\ast\\) high **and** \\(\\mathrm\{conf\}\\) low (request Whale/Owl verification).\
+\
+- **Telemetry (per horizon)**  \
+  ```json\
+  \{\
+    "horizon": "short|mid|long",\
+    "P": 0.72,\
+    "A": \{ "N": 0.41, "S_T": 0.22, "M_SHI": 0.15, "weights": [0.5,0.3,0.2] \},\
+    "F_raw": 1.24,\
+    "F_smooth": 1.07,\
+    "confidence": 0.78,\
+    "policy": ["purification", "weaving_cap", "whale_scan"]\
+  \}\
+````\
+\
+* **Edge Cases**\
+\
+  * **A \uc0\u8776  0**: treat as critical; hard-cap nonessential sigils, elevate Flame venting.\
+  * **P \uc0\u8776  0**: decay to baseline; don\'92t overreact (no-op with monitoring).\
+\
+```\
+\
+Want me to add **3) Horizon Projections** next with concrete window sizes, EMA parameters, and the Monte-Carlo outline for long-term?\
+```\
+}

@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ## Invariants\
+\
+1. **Topology \uc0\u8596  Schema Consistency**  \
+   - Strong edges (high weight, high reliability) must correspond to short projected distances.  \
+   - Tolerance band: if `d_x` > \uc0\u948  while `w_ij` > \u952 , flag as incoherent (Spider tension).  \
+   - Schema cannot accept edges that contradict topological geometry for more than N ticks without scheduled correction (Prune/Weave/Reproject).\
+\
+2. **No Free Tears**  \
+   - Topology updates must not strand high-reliability edges across large distances.  \
+   - All large displacements require explicit operators (**Weave**, **Reproject**) and consume motion budget.  \
+   - Owl audits log any \'93tear events\'94 where displacement > \uc0\u949  with reliability > r\\*.  \
+\
+3. **Layer Ordering**  \
+   - Vertical moves (Sink/Lift) must respect rebloom/decay rules.  \
+   - **Lift** only permitted for nodes with stable Ash + pigment bias.  \
+   - **Sink** only permitted for nodes flagged as soot-heavy, low energy, or decay candidates.  \
+   - No bypassing: nodes may not jump multiple layers in one tick without staged ops.  \
+\
+4. **Energy Conservation**  \
+   - Cluster **Fuse** and **Fission** redistribute energy and health; they cannot create or destroy it.  \
+   - `\uc0\u931  energy_before \u8776  \u931  energy_after` (\'b1\u949  for diffusion).  \
+   - Nutrient economy remains balanced: excess routed to Mycelial layer, deficits trigger Beetle/Purification passes.  \
+\
+5. **Pigment Integrity** *(extension)*  \
+   - Pigment diffusion cannot exceed saturation caps.  \
+   - Global hue balance must remain within SHI thresholds (no total dominance of one channel).  \
+   - Bee/Medieval Bee tracers enforce pigment redistribution when imbalance persists.  \
+\
+6. **Motion Budget** *(extension)*  \
+   - Per tick, total displacement of nodes/edges is capped (\uc0\u931 \u8214 \u916 x\u8214  \u8804  budget).  \
+   - Excess movement is queued into subsequent ticks to avoid discontinuities.  \
+   - Prevents GUI tearing and maintains continuity for operators.  \
+}

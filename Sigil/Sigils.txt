@@ -1,0 +1,111 @@
+Perfect — here’s a **full Sigil Houses bucket** scaffold. This one gives
+you the mythic-symbolic command grammar, parallel to Pigments.
+````markdown
+# Sigil Houses — Symbolic Grammar of DAWN
+## Purpose
+To define a **symbolic command system** where state transitions,
+cognitive acts, and high-order operations are expressed through sigils
+rather than raw mechanics.
+Sigil Houses serve as **containers and routing hubs** for symbolic acts,
+ensuring DAWN’s commands carry *meaning* as well as function.
+---
+## Rationale
+- **Why sigils?** Symbols compress complex operations into a single
+glyph — legible to humans, efficient for DAWN.
+- **Why houses?** Archetypal “houses” organize sigils into families of
+function (recall, rebloom, purification, weaving).
+- **Why symbolic grammar?** DAWN’s cognition is not just math but
+metaphor. Sigils bind those metaphors to executable form.
+Without Sigil Houses, commands remain sterile — without hierarchy,
+context, or resonance.
+---
+## Core Concepts
+### 1. Sigil Forms
+- Each sigil = a glyph encoding a **specific cognitive act**: recall,
+bind, purge, weave, ignite.
+- Sigils may have **parameters**: pressure thresholds, pigment vectors,
+target clusters.
+- Drawn/rendered in GUI as geometric or fractal marks.
+### 2. Houses
+Sigils are grouped into **Houses**, each embodying a symbolic domain:
+- **House of Memory** — recall, archive, rebloom.
+- **House of Purification** — prune, decay, soot-to-ash transitions.
+- **House of Weaving** — connect, reinforce, thread signals across
+depths (Persephone layer).
+- **House of Flame** — ignition, pressure release, entropy modulation.
+- **House of Mirrors** — reflection, schema audits, tracer coordination
+(Owl’s domain).
+- **House of Echoes** — resonance, voice modulation, auditory schema.
+### 3. Invocation
+- Sigils are “cast” during ticks, not continuously.
+- Invoked by **Core** modules under pressure, or by **Tracers** as
+symbolic feedback.
+- Sigils can be **stacked**: e.g., Purification + Weaving = prune then
+reinforce.
+---
+## Mechanics
+### Representation
+```json
+{
+"sigil": "weave_thread",
+"house": "weaving",
+"parameters": {
+"source": "cluster_A",
+"target": "cluster_B",
+"tension": 0.42
+},
+"tick_id": 99321,
+"invoker": "Spider"
+}
+````
+### Routing
+* Sigil Houses act as **symbolic routers** — like namespaces.
+* Command delivery managed via meta-layer protocol (resolve target,
+route to house).
+* Ensures that only compatible operations are invoked within each
+archetype.
+---
+## Interactions
+* **Core** → Sigils replace raw ops; provide *mythic grammar* for
+control.
+* **Bloom** → Rebloom events wrapped in **Memory House sigils**.
+* **Residue** → Ash/Soot transitions managed via **Purification House**.
+* **Tracers** → Each tracer may carry a “signature” sigil type (Crow =
+Echo, Owl = Mirror, Bee = Weaving).
+* **GUI** → Sigils visualised as glyph overlays; operators can “read”
+system state symbolically.
+---
+## Failure Modes
+* **Sigil Drift** → glyph meaning diverges from execution.
+* **Over-Sigilization** → too many symbolic wrappers obscure mechanics.
+* **Broken House** → conflicting sigils within a house cause
+incoherence.
+Safeguards:
+* SHI monitors symbolic coherence (sigil health index).
+* Owl audits glyph → meaning → execution consistency.
+* Spider flags tension when sigil threads conflict.
+---
+## Logs & Telemetry
+* **Sigil Invocation Log**: house, glyph, parameters, invoker, tick.
+* **House Health**: balance of active vs dormant houses.
+* **Conflict Alerts**: log when sigils collide or drift.
+* GUI: render active glyphs in operator console.
+---
+## Test Vectors
+1. Invoke rebloom sigil in House of Memory → confirm Juliet bloom
+triggered.
+2. Call purification sigil on soot cluster → confirm soot-to-ash
+conversion.
+3. Weaving sigil between clusters under drift → confirm Spider +
+Persephone layer involved.
+4. Overload with conflicting sigils in same house → SHI coherence drops,
+Owl logs audit.
+5. Operator reads GUI glyph → meaning matches logged execution.
+---
+```
+⚡ Sigil Houses are your **symbolic API layer**: they unify technical
+ops and myth into one grammar.
+�� Do you want me to break out each **House** (Memory, Purification,
+Weaving, Flame, Mirrors, Echoes) as its own mini-doc, like we did for
+tracers?
+```

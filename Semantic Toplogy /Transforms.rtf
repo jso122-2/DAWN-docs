@@ -1,0 +1,69 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ## Transforms (Topology Operators)\
+\
+The topology can be reshaped by a small set of canonical operators.  \
+Each is:\
+- **Idempotent** under its guard conditions (calling twice has no further effect).\
+- **Composable** (multiple can fire in a single tick; stackable inside the Sigil Ring).\
+- **Bounded** by motion/energy budgets (no free moves, no unbounded growth).\
+\
+---\
+\
+### **Weave(A,B,\uc0\u945 )**\
+- **Action**: reinforce or create edge (A\'96B) along local manifold.  \
+- **Guard**: semantic similarity high (\uc0\u8214 eA\u8722 eB\u8214  small), distance in projected space short, tension \u964 AB above threshold.  \
+- **Effect**: increase weightAB \uc0\u8592  weightAB + \u945 \'b7\u916 ; reduce \u964 AB.  \
+- **Sigil House**: Weaving.\
+\
+### **Prune(E,\uc0\u954 )**\
+- **Action**: attenuate or remove edge(s) in set E.  \
+- **Guard**: coherence low (edge weight disagrees with geometry), volatility > \uc0\u954 , reliability low.  \
+- **Effect**: reduce weight, possibly delete edge; free nutrients routed back.  \
+- **Sigil House**: Purification.\
+\
+### **Fuse(C1,C2)**\
+- **Action**: merge clusters C1, C2 into single cluster.  \
+- **Guard**: sustained co-firing across ticks, low tension between, strong nutrient/energy overlap.  \
+- **Effect**: new node/cluster with combined energy/health; edges merged; IDs mapped.  \
+- **Sigil House**: Memory/Weaving (fusion as rebirth).\
+\
+### **Fission(C,\uc0\u968 )**\
+- **Action**: split brittle or entropic cluster C into two.  \
+- **Guard**: internal entropy high, coherence low, multiple tension ridges inside cluster.  \
+- **Effect**: partition nodes; redistribute edges; \uc0\u968  controls split bias.  \
+- **Sigil House**: Purification/Flame (controlled burn).\
+\
+### **Lift(N\uc0\u8594 Layer\u8593 )**\
+- **Action**: promote node N toward surface (lower layer index).  \
+- **Guard**: Ash-rich, coherent, pigment-biased, candidate for rebloom.  \
+- **Effect**: N.layer \uc0\u8592  max(0, N.layer\u8722 1); rebloom path triggered if surface reached.  \
+- **Sigil House**: Memory (resurrection).\
+\
+### **Sink(N\uc0\u8594 Layer\u8595 )**\
+- **Action**: demote node N deeper (raise layer index).  \
+- **Guard**: soot-heavy, low health/energy, prolonged neglect.  \
+- **Effect**: N.layer \uc0\u8592  N.layer+1; marked for shimmer decay or compost.  \
+- **Sigil House**: Purification (descent).\
+\
+### **Reproject(P)**\
+- **Action**: update positions x \uc0\u8592  \u928 (e,telemetry).  \
+- **Guard**: latent\'96projected drift \uc0\u916 d beyond tolerance, but motion budget available.  \
+- **Effect**: smooth movement of x toward embedding manifold; preserve edge continuity.  \
+- **Sigil House**: Mirrors (reflection/audit).\
+\
+---\
+\
+## Composition Notes\
+- Operators can be stacked in a single tick (e.g., **Prune \uc0\u8594  Weave \u8594  Reproject**) via Sigil Ring ordering.  \
+- Fuse/Fission are heavier ops; they consume more budget and may trigger Whale/Owl audits.  \
+- Lift/Sink adjust **layer depth** but leave edge structure intact.  \
+- All transforms must log provenance: who invoked, trigger metric, guard condition passed.  \
+\
+---\
+}

@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Here\'92s a fleshed-out **SCUP Coupling** section for your Forecasting Engine doc, making it concrete and operational:\
+\
+````markdown\
+## SCUP Coupling\
+\
+Forecasting Engine and **SCUP (Semantic Coherence Under Pressure)** operate in tandem:  \
+forecasts predict *what pressures are coming*, SCUP judges *how coherence will hold*.\
+\
+---\
+\
+### Data Flow\
+1. **Input**: Forecast Engine outputs horizon projections of \\(P\\) (pressure) and \\(F=P/A\\) (forecast index).  \
+2. **SCUP Evaluation**:  \
+   - Calculates probability that semantic coherence < threshold within horizon.  \
+   - Uses logistic model or backtested likelihood tables:\
+     \\[\
+     \\Pr[\\text\{loss\}] = \\sigma(\\alpha F + \\beta P + \\gamma \\Delta\\text\{drift\} - \\delta A)\
+     \\]\
+   - Where \uc0\u963  = sigmoid, \u916 drift = projected schema drift magnitude.  \
+3. **Decision Point**:  \
+   - If \\(\\Pr[\\text\{loss\}] > \\theta\\), the system shifts from **watch** to **intervene**.  \
+   - Default \\(\\theta = 0.7\\), tunable per mode (explore vs conserve).  \
+\
+---\
+\
+### Pre-allocation Policy\
+When threshold breached:  \
+- **Tracer Budgets**  \
+  - Pre-spawn Whale (macro ballast) for long horizon stress.  \
+  - Hold Crow bursts if they would worsen volatility.  \
+  - Queue Beetle for soot reduction if residue pressure flagged.  \
+- **Energy/Nutrient Budgets**  \
+  - Divert mycelial reserves toward high-SHI clusters.  \
+  - Cap non-critical sigil invocations (esp. Echo House amplification).  \
+\
+---\
+\
+### Early Warning Index\
+- Outputs a **SCUP Early Warning Index (SEWI)** per horizon:  \
+  ```json\
+  \{\
+    "tick": 143015,\
+    "SCUP": \{\
+      "short_term": \{ "p_loss": 0.42, "SEWI": "stable" \},\
+      "mid_term":   \{ "p_loss": 0.68, "SEWI": "watch" \},\
+      "long_term":  \{ "p_loss": 0.81, "SEWI": "critical" \}\
+    \}\
+  \}\
+````\
+\
+* Logged for Owl audits and GUI overlays.\
+* GUI: colored horizon bands (green/yellow/red) with hoverable details.\
+\
+---\
+\
+### Ops Notes\
+\
+* **Owl** consumes SEWI for long-memory audit \uc0\u8594  narrative continuity preserved.\
+* **Spider** validates whether flagged tensions align with high loss probability.\
+* **Schema** uses SEWI to adjust SHI weighting (symbolic vs structural balance).\
+* **Operator Hooks**: can manually override thresholds (raise/lower \uc0\u952 ).\
+\
+---\
+\
+\
+}

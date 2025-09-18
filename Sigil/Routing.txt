@@ -1,0 +1,69 @@
+Here’s a fully fleshed-out **Routing** section to complement Invocation
+— turning your three bullets into an operational spec:
+```markdown
+## Routing — Symbolic Delivery & Namespacing
+### Concept
+Sigil Houses act as **symbolic routers**.
+Instead of raw calls to subsystems, commands are wrapped in glyph form,
+routed through the House that governs their domain.
+This prevents arbitrary or incoherent commands — every act must pass
+through a mythic grammar.
+---
+### Meta-Layer Protocol
+1. **Resolution**
+- Each invocation is first resolved to a **target domain**: memory,
+purification, weaving, flame, mirrors, or echoes.
+- Example: a rebloom request resolves to the **House of Memory**.
+2. **Routing**
+- The meta-layer maps the sigil to its proper House.
+- House applies its **namespace filters** (only accepts glyphs
+compatible with its archetype).
+- Example: `purge_soot` routed to Purification; rejected if attempted in
+Mirrors.
+3. **Execution**
+- Once routed, the House invokes the underlying operation: recall,
+prune, weave, ignite, audit, or resonate.
+- Effects are bound to House semantics — guarantees symbolic integrity.
+---
+### Syntax & Representation
+Routing frames invocation payloads explicitly with **house namespace**:
+```json
+{
+"tick": 204441,
+"sigil": "ignite_release",
+"house": "flame",
+"params": {
+"pressure_level": 0.92,
+"release_target": "cluster_19"
+}
+}
+```
+- **house** field determines router.
+- If `house` and `sigil` mismatch, request is rejected or redirected to
+fallback.
+---
+### Compatibility & Safeguards
+- **House Enforcement**: Each House accepts only its own glyph family.
+- **Cross-House Stacking**: allowed if compatible (e.g., Purification →
+Weaving), blocked if conflicting (e.g., Flame ignite + Flame
+extinguish).
+- **Conflict Resolution**: SHI arbitrates; Owl logs mismatches for
+audit.
+- **Tracer Enforcement**: tracers invoking sigils route only to Houses
+aligned with their archetype (Crow → Echo, Owl → Mirrors, Bee → Weaving,
+etc.).
+---
+### Benefits
+- Provides **namespaced clarity**: every command tied to a symbolic
+family.
+- Prevents **semantic incoherence**: can’t ignite in Memory, can’t
+rebloom in Purification.
+- Makes GUI visualisation straightforward: Houses = panels, Sigils =
+glyphs moving through them.
+```
+⚡ With this, you’ve got **Invocation + Routing** nailed down: the
+“cast” and the “delivery.”
+�� Do you want me to now scaffold a **tick walkthrough example**
+(end-to-end: pressure spike → Flame invocation → Spider adds Weaving →
+Owl mirrors → log shows routed stack)? That would show Routing and
+Invocation working together in one flow.

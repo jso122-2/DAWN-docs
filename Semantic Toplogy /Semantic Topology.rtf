@@ -1,0 +1,168 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20760\viewh14400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Semantic Topology \'97 The Shape of Meaning in DAWN\
+\
+## Purpose\
+Define and maintain the **spatial shape of meaning**\'97the arrangement of concepts, memories, and residues\'97so DAWN can route attention, energy, and updates along the most coherent paths.\
+\
+---\
+\
+## Rationale\
+- Mechanics (Core) and memory (Bloom/Residue) need a **map** to move through.\
+- Schema says *what relates to what*; **Semantic Topology** says *where it sits* and *how forces propagate*.\
+- With an explicit topology, DAWN can do fast local operations (weave, prune) and reliable global ones (re-route, fuse/fission).\
+\
+---\
+\
+## Primitives\
+\
+### Entities\
+- **Node**: a semantic unit (concept/memory/cluster).  \
+  Fields: `id`, `position: \uc0\u8477 ^d`, `tint:[R,G,B]`, `health`, `energy`, `last_touch`.\
+- **Edge**: directional or undirected relation.  \
+  Fields: `id`, `a`, `b`, `weight`, `tension`, `volatility`, `reliability`.\
+- **Layer**: depth plane (surface \uc0\u8596  underlayers), e.g., `0=surface`, `1+=deeper`.\
+- **Sector**: regional partition of space (core/peripheral/transitional/deep).\
+- **Frame**: moving reference (e.g., active focus window) for local computations.\
+\
+### Coordinates\
+- **Position**: `x \uc0\u8712  \u8477 ^d` (d defaults to 3 for GUI parity; high-dim embeddings stored separately).\
+- **Embedding**: `e \uc0\u8712  \u8477 ^k` (latent semantics).  \
+  `position` is a *projected* view used for topology ops & visualization.\
+\
+---\
+\
+## Core Metrics\
+\
+- **Semantic Distance**: `dist(i,j) = ||e_i - e_j||` (latent) and `||x_i - x_j||` (projected).  \
+- **Topological Coherence**: alignment of edge weights with local distances (near = strong).  \
+- **Tension**: `\uc0\u964 _ij` (edge strain from Schema/Spider); high \u964  \u8658  risk of rupture.  \
+- **Drift Alignment**: cosine between global drift vector and local manifold direction.  \
+- **Residue Pressure**: local soot/ash ratio around a node/edge window.  \
+- **Pigment Field**: spatial gradient of [R,G,B] bias across regions.\
+\
+---\
+\
+## Transforms (Topology Operators)\
+\
+- **Weave**(A,B,\uc0\u945 ): reinforce or create an edge along existing manifold; preserves local geometry.\
+- **Prune**(E,\uc0\u954 ): remove/attenuate edges that violate coherence (high volatility, low reliability).\
+- **Fuse**(C1,C2): merge neighboring clusters with sustained co-firing and low tension.\
+- **Fission**(C,\uc0\u968 ): split a brittle/high-entropy cluster along natural cut.\
+- **Lift**(N\uc0\u8594 Layer\u8593 ): promote a deep node toward surface (rebloom path).\
+- **Sink**(N\uc0\u8594 Layer\u8595 ): demote surface node into underlayer (decay path).\
+- **Reproject**(P): update `x` from embeddings/telemetry without tearing layout.\
+\
+Each operator is **idempotent under its guard conditions** and **composable** inside a tick (via Sigil Ring).\
+\
+---\
+\
+## Field Equations (local updates)\
+\
+Let `\uc0\u8501 (i)` be neighbors of node `i`.\
+\
+- **Local Coherence**  \
+  `C_i = mean_\{j\uc0\u8712 \u8501 (i)\} [ sim(e_i,e_j) \'b7 weight_ij / (1 + dist_x(i,j)) ]`\
+\
+- **Tension Update**  \
+  `\uc0\u964 _ij \u8592  \u947 \'b7\u964 _ij + (1-\u947 )\'b7|weight_ij - f(dist_x(i,j))|`  \
+  (penalize edges whose strength disagrees with geometry)\
+\
+- **Pigment Diffusion**  \
+  `P_i \uc0\u8592  P_i + \u951 \'b7\u931 _\{j\u8712 \u8501 (i)\} (P_j - P_i)\'b7weight_ij` (bounded, with saturation cap)\
+\
+- **Residue Pressure Field**  \
+  `\uc0\u961 _i \u8592  softmax_local(soot_i, ash_i, entropy_i)` (used to bias weave/prune)\
+\
+---\
+\
+## Invariants\
+\
+1. **Topology \uc0\u8596  Schema Consistency**: strong edges should be locally near (up to tolerance).  \
+2. **No Free Tears**: layout updates cannot strand high-reliability edges across long distances without a planned **weave** or **reproject**.  \
+3. **Layer Ordering**: descent/return (sink/lift) must respect rebloom/decay rules.  \
+4. **Energy Conservation**: fusing/fissioning redistributes (doesn\'92t create) energy/health.\
+\
+---\
+\
+## Operations (per tick)\
+\
+### 1) Update\
+- Ingest: embeddings deltas, drift vector, bloom/residue stats, tracer alerts.  \
+- Recompute: local coherence `C_i`, tensions `\uc0\u964 _ij`, pigment field, residue pressure.  \
+- Soft-reproject: small `x` nudges toward latent manifold; keep edges continuous.\
+\
+### 2) Decide\
+- If **high \uc0\u964 ** \u8658  schedule **Prune** or **Weave**.  \
+- If **fused cluster inertia** high + co-fire \uc0\u8658  **Fuse**; if brittle/entropic \u8658  **Fission**.  \
+- If **residue pressure** spikes near surface \uc0\u8658  **Sink**; if surface starved of anchors \u8658  **Lift**.  \
+- If **coherence drift** accumulates \uc0\u8658  global **Reproject** (bounded move).\
+\
+### 3) Emit\
+- Topology delta: node/edge moves, fuses, fissions, layer changes.  \
+- Sigil stack (Weaving/Purification/Memory/Flame) for the Ring.  \
+- Snapshots to GUI, Schema, Owl (provenance of transforms).\
+\
+---\
+\
+## Interfaces\
+\
+- **Schema**: consumes/produces tensions, weave/prune plans, layer moves; receives SHI constraints.  \
+- **Mycelial Layer**: uses topology to route nutrient flows; returns energy/health deltas.  \
+- **Bloom**: informs lift/sink via rebloom/decay status; receives new positions for visuals.  \
+- **Residue**: supplies soot/ash pressures that shape transforms.  \
+- **Tracers**:  \
+  - Spider feeds `\uc0\u964 _ij`;  \
+  - Bee/Medieval Bee bias weaving across clusters/time;  \
+  - Beetle proposes prune targets;  \
+  - Whale provides macro curvature;  \
+  - Owl records topological epochs.  \
+- **Sigil Ring**: executes Weave/Prune/Fuse/Fission/Lift/Sink as glyph stacks.  \
+- **GUI**: renders nodes/edges with tension glows, pigment tint, layer depth, and motion trails.\
+\
+---\
+\
+## Failure Modes & Safeguards\
+\
+- **Rubber-Sheet Tear** (massive reproject breaks edges)  \
+  \uc0\u8594  Safeguard: bounded moves per tick; queue large moves as staged weaves.\
+\
+- **Topology Drift** (weights and geometry diverge)  \
+  \uc0\u8594  Safeguard: periodic coherence checks; enforce prune/weave caps.\
+\
+- **Over-Fusion / Over-Fission** (loss of diversity or fragmentation)  \
+  \uc0\u8594  Safeguard: SHI diversity term; minimum/maximum cluster sizes.\
+\
+- **Pigment Flooding** (one hue dominates space)  \
+  \uc0\u8594  Safeguard: saturation clamps; SHI pigment balance watch.\
+\
+- **Residue Pooling at Surface** (choking with soot)  \
+  \uc0\u8594  Safeguard: Purification pass + Sink transforms prioritized.\
+\
+---\
+\
+## Logs & Telemetry\
+\
+- **Topology Snapshot**: `nodes\{x,layer,sector,P\}`, `edges\{weight,\uc0\u964 \}`, `clusters`, `transforms_applied`.  \
+- **Coherence Report**: distribution of `C_i`, violations count.  \
+- **Motion Budget**: total displacement allowed/used this tick.  \
+- **Transform Ledger**: list of weave/prune/fuse/fission/lift/sink with reasons & thresholds.  \
+- **Provenance Hooks**: references to tracers and sigil stacks that triggered changes.\
+\
+---\
+\
+## Test Vectors\
+\
+1. **Tension Ridge**: inject high `\uc0\u964 ` along a corridor \u8594  plan **Weave** across locals; verify \u964  drops.  \
+2. **Soot Surge at Surface**: local residue pressure spikes \uc0\u8594  **Sink** nearby nodes; Purification stack fires.  \
+3. **Anchor Starvation**: surface loses anchors \uc0\u8594  **Lift** deep node with stable ash; Juliet rebloom visible.  \
+4. **Macro Drift**: sustained global drift misalignment \uc0\u8594  bounded **Reproject**; edges remain continuous.  \
+5. **Pigment Monoculture**: heavy Red bias \uc0\u8594  saturation clamps; Bee redistributes pigment; SHI recovers.\
+\
+---\
+}

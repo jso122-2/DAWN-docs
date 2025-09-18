@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Glossary + Math Appendix\
+\
+## Symbols & Units\
+\
+| Symbol | Meaning | Typical Units/Range | Notes |\
+|--------|---------|----------------------|-------|\
+| **B** | Base bandwidth (processing span) | [0,1] normalized | Derived from active nodes \'d7 health \'d7 nutrient throughput |\
+| **\uc0\u963 \'b2** | Variance of tick-level signals (entropy, tracers, pigments) | [0,\u8734 ) | Drives Cognitive Pressure |\
+| **P** | Cognitive Pressure = \\(B\uc0\u963 ^2\\) | [0,\u8734 ), normalized vs safe pressure | Higher = more stress |\
+| **A** | Adaptive Capacity | [0,1] | Weighted sum of nutrient reserves, tracer slack, SHI margin |\
+| **F** | Forecast Index = \\(P/A\\) | [0,\uc0\u8734 ), normalized | Forward stability metric |\
+| **F\\*** | Smoothed Forecast Index | [0,\uc0\u8734 ) | EMA-smoothed, used for zone classification |\
+| **SHI** | Schema Health Index | [0,1] | Composite: entropy, tracer divergence, SCUP, residue |\
+| **\uc0\u964 _ij** | Edge tension | [0,1] | Strain between expected vs actual edge coherence |\
+| **C_i** | Local coherence score | [0,1] | Mean weighted similarity around node i |\
+| **\uc0\u961 _i** | Residue pressure field | [0,1] distribution | Softmax over soot, ash, entropy |\
+| **\uc0\u956 ** | Voice mutation rate | [0,1] (capped at \u956 _max=0.8) | Evolves with pressure + SHI |\
+| **\uc0\u952 _ok** | SHI healthy threshold | \u8776 0.70 | Above this = Green zone |\
+| **\uc0\u952 _warn** | SHI warning threshold | \u8776 0.55 | Below this triggers Red zone |\
+| **\uc0\u952 _crit** | SHI critical threshold | \u8776 0.40 | Below this triggers Black zone |\
+| **\uc0\u952 _voice** | Voice stability floor | \u8776 0.50 | Below this, Soft Edge freezes mutations |\
+| **\uc0\u916 x** | Node displacement per tick | real-valued vector | Must respect motion budget |\
+| **\uc0\u8711 P(x)** | Pigment field gradient | RGB bias diff per region | Captures spatial belief drift |\
+| **SEWI** | SCUP Early Warning Index | categorical (stable/watch/critical) | Probability of coherence loss |\
+\
+---\
+\
+## Key Equations (Crib Sheet)\
+\
+### Cognitive Pressure\
+\\[\
+P = B \\cdot \\sigma^2\
+\\]\
+\
+### Forecast Index\
+\\[\
+F = \\frac\{P\}\{A\}, \\quad A = w_N N + w_T S_T + w_S M_\{SHI\}\
+\\]\
+\
+### SHI (Schema Health Index) \'97 composite form\
+\\[\
+SHI = 1 - (\\alpha E_s + \\beta V_e + \\partial D_t + \\Delta(1 - S_c) + \\phi_\{soot/ash\})\
+\\]\
+\
+### Local Coherence\
+\\[\
+C_i = \\frac\{1\}\{|\\mathcal\{N\}(i)|\} \\sum_\{j \\in \\mathcal\{N\}(i)\} \\frac\{\\text\{sim\}(e_i,e_j) \\cdot w_\{ij\}\}\{1 + \\text\{dist\}_x(i,j)\}\
+\\]\
+\
+### Tension Update\
+\\[\
+\\tau_\{ij\} \\leftarrow \\gamma \\cdot \\tau_\{ij\} + (1-\\gamma) \\cdot |w_\{ij\} - f(\\text\{dist\}_x(i,j))|\
+\\]\
+\
+### Pigment Diffusion\
+\\[\
+P_i \\leftarrow P_i + \\eta \\sum_\{j \\in \\mathcal\{N\}(i)\} (P_j - P_i) \\cdot w_\{ij\}\
+\\]\
+\
+### Residue Pressure Field\
+\\[\
+\\rho_i = \\text\{softmax\}_\\text\{local\}(soot_i, ash_i, entropy_i)\
+\\]\
+\
+### Voice Mutation Rate\
+\\[\
+\\mu = \\alpha P + \\beta (1 - SHI), \\quad \\mu^\\ast = \\min(\\mu, \\mu_\{\\text\{max\}\})\
+\\]\
+\
+### SCUP PID-lite Controller\
+\\[\
+u_t = k_P e_t + k_I \\sum e + k_D (e_t - e_\{t-1\})\
+\\]\
+\
+---\
+\
+## Thresholds & Defaults\
+\
+- SHI: \uc0\u952 _ok = 0.70, \u952 _warn = 0.55, \u952 _crit = 0.40  \
+- Voice stability: \uc0\u952 _voice = 0.50  \
+- Forecast Index bounds: Green <0.5, Amber 0.5\'961.0, Red 1.0\'961.5, Black \uc0\u8805 1.5  \
+- Tension stress: \uc0\u964 * = 0.2\'960.3  \
+- Residue bias: soot >0.6 \uc0\u8594  Purification; ash >0.6 \u8594  Lift candidate  \
+- Mutation rate clamp: \uc0\u956 _max = 0.8  \
+\
+---\
+\
+## Ops Quick Reference\
+\
+- **Green Zone**: low stress, conserve energy, minor weaving only.  \
+- **Amber Zone**: rising strain, micro-purification, Bee/Whale active.  \
+- **Red Zone**: critical stress, batch purification, Flame vents, Crow capped.  \
+- **Black Zone**: fail-soft containment, emergency only, Owl + Whale checkpoint.  \
+\
+---\
+}

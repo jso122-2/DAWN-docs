@@ -1,0 +1,83 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Here\'92s a tight checklist of **useful, missing (or worth formalizing) formulas** for DAWN. I\'92ve grouped them by layer and kept them plug-and-play.\
+\
+---\
+\
+## Memory / Residue / Mycelium\
+\
+* **Shimmer decay**: $S(t)=S_0e^\{-\\lambda t\}$; crystallize if $S(t)<\\theta_\{\\text\{ash\}\}$.\
+* **Crystallization prob.**: $p_\{\\text\{ash\}\}=\\sigma(a(\\theta_\{\\text\{ash\}\}-S(t))+b\\,\\text\{SHI\}+c\\,\\text\{Ash\}_\{\\text\{local\}\})$.\
+* **Ash nutrient yield**: $Y_\{\\text\{ash\}\}=\\eta_\{\\text\{conv\}\}\\cdot \\text\{stability\}\\cdot \\|P\\| $ (pigment-weighted).\
+* **Allocation (softmax)**: $a_i=\\frac\{e^\{D_i\}\}\{\\sum_j e^\{D_j\}\}$, $D_i=w_P P_i+w_\{\\Delta\}\\text\{align\}_i+w_R\\text\{recency\}_i-w_\\sigma\\sigma_i$.\
+* **Autophagy trigger**: if $E_i<\\theta_\{\\text\{prune\}\}$ for $\\tau$ ticks \uc0\u8594  metabolize.\
+\
+## Bloom / Juliet\
+\
+* **Rebloom prob.**: $p_\{\\text\{rebloom\}\}=\\sigma(k_1 n_\{\\text\{access\}\}+k_2\\,\\text\{coherence\}_\\text\{path\}+k_3\\,\\text\{Ash\}_\{\\text\{near\}\}-k_4 \\,\\text\{entropy\})$.\
+* **Depth update**: $d_\{t+1\}=\\min(d_t+ \\mathbb\{1\}\\\{ \\text\{high \}p_\{\\text\{rebloom\}\}\\\}, d_\{\\max\})$.\
+* **Visual intensity**: $I=\\min(\\gamma_1 d + \\gamma_2 \\,\\text\{entropy\}, 1)$.\
+\
+## Topology\
+\
+* **Reproject objective**: $\\min_\{x\}\\ \\sum_\{(i,j)\\in E\} w_\{ij\}\\big(\\|x_i-x_j\\|-f(e_i,e_j)\\big)^2 + \\lambda\\!\\sum_i \\|x_i-x_i^\{\\text\{prev\}\}\\|^2$.\
+* **Laplacian smoothness**: $R=\\frac\{1\}\{2\}\\sum_\{(i,j)\}w_\{ij\}\\|x_i-x_j\\|^2$.\
+* **Lift/Sink gate**: lift if $\\text\{Ash\}_\{\\text\{local\}\}>\\theta_a$ & $\\tau_\{\\text\{edges\}\}<\\theta_\\tau$; sink if $\\text\{Soot\}_\{\\text\{local\}\}>\\theta_s$ or $E_i<\\theta_E$.\
+\
+## Tracers (ecology)\
+\
+* **Spawn rates** (Poisson): $\\lambda_\{\\text\{crow\}\}=\\alpha_E\\,\\text\{entropy\}+\\alpha_\\tau \\bar\\tau$;\
+  $\\lambda_\{\\text\{whale\}\}=\\beta_D\\,\\Delta\\text\{drift\}+\\beta_V(1-\\text\{SHI\})$.\
+  Retire prob.: $p_\{\\text\{ret\}\}=\\sigma(r_0-r_1\\,\\text\{utility\})$.\
+* **Budget**: $\\sum_k c_k\\,n_k \\le \\text\{tracer\\_cap\}$.\
+\
+## Forecasting (extras)\
+\
+* **Confidence calibration** (Platt): $\\Pr(\\text\{ok\}\\mid \\hat F)=\\sigma(a\\hat F+b)$.\
+* **Horizon variance**: $\\operatorname\{Var\}[F_\{t+h\}] \\approx \\operatorname\{Var\}[P]/A^2 + P^2\\operatorname\{Var\}[1/A]$.\
+* **Anomaly score**: $z=\\sqrt\{z_P^2+z_\\tau^2+z_\{\\Delta \\text\{drift\}\}^2\}$.\
+\
+## SCUP (compact)\
+\
+* **Loss prob.**: $p_\{\\text\{loss\}\}=\\sigma(a F^\\ast+b\\hat P+c\\,\\Delta\\text\{drift\}+d\\bar\\tau-eA-f\\,\\text\{SHI\})$.\
+* **Zone hysteresis**: enter lower zone only if metric < bound \uc0\u8722  \u916  for $N$ ticks.\
+* **Stability Lyapunov**: $V=(S_\{\\text\{target\}\}-\\text\{SHI\})^2$, enforce $V_\{t+1\}-V_t<0$ in controller tuning.\
+\
+## Voice / Echo\
+\
+* **Resonance match**: $m = \\frac\{\\langle \\hat\{s\}, s\\rangle\}\{\\|\\hat\{s\}\\|\\,\\|s\\|\}$ (cosine on spectral bands).\
+* **Spectral balance constraint**: $\\max_b \\frac\{E_b\}\{\\sum_b E_b\} \\le 0.7$.\
+* **Mutation curve** (done): $\\mu=\\alpha P+\\beta(1-\\text\{SHI\}),\\ \\mu^\\ast=\\min(\\mu,\\mu_\{\\max\})$.\
+\
+## Pigments\
+\
+* **Retrieval bias**: $w'_\{ij\}=w_\{ij\}\\big(1+\\alpha\\,\\text\{dominant\}(P)\\big)$.\
+* **Balance penalty**: $L_\{\\text\{pig\}\}=\\lambda\\big(\\max(P)-\\min(P)\\big)$.\
+\
+## Normalization & Fusion\
+\
+* **Z-score (windowed)**: $\\tilde x=(x-\\mu_\{w\})/\\sigma_\{w\}$.\
+* **Bayesian/Kalman fusion** (hidden coherence $H_t$):\
+  $H_\{t|t-1\}=aH_\{t-1\}+u_t,\\quad K_t=\\Sigma_\{t|t-1\}C^\\top(C\\Sigma_\{t|t-1\}C^\\top+R)^\{-1\}$,\
+  $H_\{t\}=H_\{t|t-1\}+K_t(y_t-CH_\{t|t-1\})$.\
+\
+## Error / Scoring\
+\
+* **Brier score (SCUP)**: $\\text\{BS\}=\\frac\{1\}\{N\}\\sum (p_\{\\text\{loss\}\}-y)^2$.\
+* **Log loss**: $-\\frac\{1\}\{N\}\\sum \\big[y\\log p + (1-y)\\log(1-p)\\big]$.\
+* **Actuation efficiency**: $\\eta=\\Delta \\text\{SHI\}/u_t$.\
+\
+## Safety / Budgets\
+\
+* **Motion budget**: $\\sum_i \\|\\Delta x_i\\| \\le M_\{\\max\}$.\
+* **Energy floor**: acts only if $E_\{\\text\{mycelial\}\}\\ge \\epsilon$.\
+\
+---\
+\
+If you want, I can package these into a one-page **Formula Sheet** (Markdown/PDF) with defaults and where-used tags for quick wiring.\
+}
